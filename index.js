@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.get('/getMealPlan', function(req, res) {
-    res.render('mealPlan');
+    res.render('pages/mealPlan');
 });
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
