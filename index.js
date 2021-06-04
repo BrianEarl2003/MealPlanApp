@@ -22,5 +22,20 @@ app.set('view engine', 'ejs');
 app.get('/getMealPlan', function(req, res) {
     res.render('pages/mealPlan');
 });
+app.get('/getMealPlan/Calendar', function(req, res) {
+  res.render('pages/Calendar');
+});
+app.get('/getMealPlan/planMeals', function(req, res) {
+  res.render('pages/planMeals');
+});
+app.get('/getMealPlan/addRecipe', function(req, res) {
+  res.render('pages/addRecipe');
+});
+app.get('/getMealPlan/recipeList', function(req, res) {
+  res.render('pages/recipeList');
+});
+app.get('/getMealPlan/ingredientList', function(req, res) {
+  res.render('pages/ingredientList');
+});
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
