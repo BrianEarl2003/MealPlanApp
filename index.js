@@ -3,9 +3,9 @@ const path = require('path');
 //const {Pool} = require('pg');
 //const axios = require('axios');
 
-const CombosController = require('./public/javascript/recipeDb.js');
+//const CombosController = require('./public/javascript/recipeDb.js');
 const PORT = process.env.PORT || 5000;
-const connectionString = process.env.DATABASE_URL || 'postgres://puzwgqmubratkb:ec448406403a5f0f3149cbbd7ecc69fc642b6abb465098324ee82c1e086f9081@ec2-54-236-169-55.compute-1.amazonaws.com:5432/daot60aij3ip2a?ssl=true';
+//const connectionString = process.env.DATABASE_URL || 'postgres://puzwgqmubratkb:ec448406403a5f0f3149cbbd7ecc69fc642b6abb465098324ee82c1e086f9081@ec2-54-236-169-55.compute-1.amazonaws.com:5432/daot60aij3ip2a?ssl=true';
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 /*express()
