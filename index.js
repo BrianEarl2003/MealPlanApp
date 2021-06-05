@@ -37,5 +37,6 @@ app.get('/getMealPlan/recipeList', function(req, res) {
 app.get('/getMealPlan/ingredientList', function(req, res) {
   res.render('pages/ingredientList');
 });
+app.use(express.static(__dirname + '/public'));
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
