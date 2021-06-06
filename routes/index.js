@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Meal Plan App' });
 });
 
+/* GET addRecipe page */
+router.get('/addRecipe', function(req, res, next) {
+  res.render('addRecipe', { title: 'Add a Recipe' });
+});
 
 /* GET recipelist page. */
 router.get('/recipelist', function(req, res) {
