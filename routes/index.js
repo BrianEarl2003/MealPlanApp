@@ -27,11 +27,11 @@ router.get('/planMeals', function(req, res, next) {
 });
 
 /* GET recipelist page. */
-router.get('/recipeList', function(req, res) {
+router.get('/recipelist', function(req, res) {
   var db = req.db;
   var collection = db.get('recipeList');
   collection.find({},{},function(e,docs){
-      res.render('recipeList', {
+      res.render('recipelist', {
           "recipelist" : docs
       });
   });
