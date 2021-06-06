@@ -1,13 +1,8 @@
-.grid {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-}
-
 .center {
     text-align: center;
-}
+  }
 
-.image{
-    width: auto;
+  .image {
+    width: 50%;
     height: auto;
-}
+  }
