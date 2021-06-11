@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Recipe</title>
-    <!--google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Montserrat+Subrayada|Press+Start+2P|Rye|VT323&display=swap"
-          rel="stylesheet">
-    <!--CSS modifications-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/mealPlan.css">
-  </head>
-  
-  <body>
-      <h1 class="center">Add a Recipe</h1>
 
-      <form id="formAddRecipe" name="addRecipe" method="post" action="/addRecipe">
-        <input id="inputRecipeName" type="text" placeholder="Name" name="recipeName" />
-        <input id="inputRecipeIngredients" type="text" placeholder="Ingredients" name="recipeIngredients" />
-        <input id="inputRecipePrepMethod" type="text" placeholder="Method of Preparation" name="prepMethod" />
-        <button id="btnSubmit" type="submit">Submit</button>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Recipe</title>
+  <!--google fonts-->
+  <link
+    href="https://fonts.googleapis.com/css?family=Bungee+Inline|Montserrat+Subrayada|Press+Start+2P|Rye|VT323&display=swap"
+    rel="stylesheet">
+  <!--CSS modifications-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/addRecipe.css">
+  <!--link rel="stylesheet" type="text/css" href="addRecipe.css"-->
+</head>
 
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+<body>
+  <h1 class="center">Add a Recipe</h1>
+
+  <form id="formAddRecipe" name="addRecipe" method="post" action="/addRecipe">
+    <div class="form-group">
+      <input class="form-control recipeForm" id="inputRecipeName" type="text" placeholder="Recipe Title"
+        name="recipeName" />
+      <div id="ingredPrep">
+        <textarea class="form-control recipeForm" style="min-height:70px; max-height:70px" id="inputRecipeIngredients" placeholder="Ingredients"
+          name="recipeIngredients"></textarea>
+        <textarea class="form-control recipeForm" style="min-height:70px; max-height:70px" id="inputRecipePrepMethod" placeholder="Method of Preparation"
+          name="prepMethod"></textarea>
+      </div>
+      <button class="recipeForm btn btn-md u-btn-primary g-mr-10 g-mb-15"  id="btnSubmit" type="submit">Submit Recipe</button>
+    </div>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
