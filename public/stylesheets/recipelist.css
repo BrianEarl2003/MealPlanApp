@@ -22,13 +22,16 @@
 }
 
 #inputRecipeName {
-    width: 60%;
     background-color: rgb(241, 241, 133);
     padding: 2%;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Bungee Inline', cursive;
 }
 
 #btnSubmit {
     background-color: rgb(241, 241, 133);
+}
+
+.underline {
+    text-decoration: underline;
 }
