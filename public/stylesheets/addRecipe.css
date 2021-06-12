@@ -1,5 +1,5 @@
 #formAddRecipe {
-    background-color: rgb(155, 46, 46);
+    background-color: gray;
     margin-left: 16.7%;
     margin-right: 16.7%;
     padding-left: 2%;
@@ -20,7 +20,7 @@
 }
 
 #ingredPrep {
-    background-color: rgb(241, 241, 133);
+    background-color: beige;
     padding: 2%;
 }
 
@@ -29,5 +29,5 @@
 }
 
 #btnSubmit {
-    background-color: rgb(241, 241, 133);
+    background-color: beige;
 }
