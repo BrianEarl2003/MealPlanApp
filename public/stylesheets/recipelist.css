@@ -16,14 +16,12 @@
     margin-bottom: 5%;
 }
 
-#ingredPrep {
+.ingredPrep {
     background-color: rgb(241, 241, 133);
     padding: 2%;
 }
 
 #inputRecipeName {
-    background-color: rgb(241, 241, 133);
-    padding: 2%;
     font-size: 16px;
     font-family: 'Bungee Inline', cursive;
 }
