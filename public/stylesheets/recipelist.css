@@ -5,7 +5,7 @@
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 5%;
-    /*padding-bottom: 5%;*/
+    padding-bottom: 5%;
 }
 
 .center {
@@ -27,6 +27,7 @@
 #inputRecipeName {
     width: 60%;
     background-color: rgb(241, 241, 133);
+    padding: 5%;
 }
 
 #btnSubmit {
