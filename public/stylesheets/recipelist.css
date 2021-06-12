@@ -1,0 +1,33 @@
+#formAddRecipe {
+    background-color: rgb(155, 46, 46);
+    margin-left: 16.7%;
+    margin-right: 16.7%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+    /*padding-bottom: 5%;*/
+}
+
+.center {
+    text-align: center;
+}
+
+.recipeForm {
+    /*margin-left: 16.7%;
+    margin-right: 16.7%;*/
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#ingredPrep {
+    background-color: rgb(241, 241, 133);
+    padding: 5%;
+}
+
+#inputRecipeName {
+    width: 60%;
+}
+
+#btnSubmit {
+    background-color: rgb(241, 241, 133);
+}
