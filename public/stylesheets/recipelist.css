@@ -32,3 +32,7 @@
 .underline {
     text-decoration: underline;
 }
+
+.title {
+    font-size: 18px;
+}
