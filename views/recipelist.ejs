@@ -38,18 +38,7 @@
       <%
           var list = '';
           for (i = 0; i < recipelist.length; i++) {
-            list += '<div id="formAddRecipe">
-              <div class="ingredPrep">
-                <p>
-                  <strong class="cursive">RECIPE: </strong><span class="underline handwriting">' + recipelist[i].recipeName + '</span>
-                </p>
-                <p><strong class="cursive">INGREDIENTS: </strong>
-                  <span class="underline handwriting">' + recipelist[i].ingredients + '</span>
-                </p>
-                <p>
-                  <strong class="cursive">PREPARATION: </strong><span class="underline handwriting">' + recipelist[i].prepMethod + '</span>
-                </p>
-              </div><p>&nbsp;</p></div>';
+            list += '<div id="formAddRecipe"><div class="ingredPrep"><p><strong class="cursive">RECIPE: </strong><span class="underline handwriting">' + recipelist[i].recipeName + '</span></p><p><strong class="cursive">INGREDIENTS: </strong><span class="underline handwriting">' + recipelist[i].ingredients + '</span></p><p><strong class="cursive">PREPARATION: </strong><span class="underline handwriting">' + recipelist[i].prepMethod + '</span></p></div><p>&nbsp;</p></div>';
             if (i < (recipelist.length - 1)) {
               list += '<hr>';
             }
