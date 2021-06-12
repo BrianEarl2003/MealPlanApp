@@ -34,5 +34,9 @@
 }
 
 .title {
+    font-size: 28px;
+}
+
+.text {
     font-size: 18px;
 }
