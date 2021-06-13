@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var ObjectId = require('monk').ObjectID;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -45,7 +46,14 @@ router.post('/addRecipe', function(req, res) {
 
 /* GET mealCalendar page */
 router.get('/mealCalendar', function(req, res, next) {
-  res.render('mealCalendar', { title: 'Meal Calendar' });
+  var db = req.db;
+  var collection = db.get('recipeList');
+  collection.find({},{},function(e,docs){
+      res.render('mealCalendar', {
+          "recipelist" : docs,
+          title: 'Meal Calendar'
+      });
+  });
 });
 
 /* GET ingredientList page */
@@ -67,6 +75,21 @@ router.get('/recipelist', function(req, res) {
           "recipelist" : docs
       });
   });
+});
+
+/* GET viewRecipe page */
+router.get('/viewRecipe/:recipeID', function(req, res, next) {
+  var db = req.db;
+
+  var recipeID = JSON.parse(req.params.recipeID);
+  var collection = db.get('recipeList');
+
+  collection.findOne({'_id': recipeID},function(e,docs){
+    res.render('viewRecipe', {
+        "recipe" : docs,
+        title: 'View Recipe'
+    });
+});
 });
 
 module.exports = router;
