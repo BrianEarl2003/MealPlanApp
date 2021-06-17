@@ -91,7 +91,7 @@ router.post('/planMeals', function(req, res) {
   , function (err, doc) {
       if (err) {
           // If it failed, return error
-          res.send(recipeSunday);
+          res.send("There was a problem adding the information to the database.");
       }
       else {
           // And forward to success page
