@@ -65,11 +65,9 @@ router.get('/ingredientList', function(req, res, next) {
 router.get('/planMeals', function(req, res) {
   var db = req.db;
   var collection = db.get('recipeList');
-  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thrusday", "Friday", "Saturday"];
   collection.find({},{},function(e,docs){
     res.render('planMeals', { 
     "recipelist" : docs,
-    "days" : days,
     title: 'Plan Your Meals' });
   });
 });
