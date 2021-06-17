@@ -85,17 +85,15 @@ router.post('/planMeals', function(req, res) {
   var recipeSunday = req.body.sunday;
 
   // Submit to the DB
-  collection.update(
-    {"recipeName" : recipeSunday},
-    {"datePlanned" : 1}
+  collection.findOne({'recipeName' : recipeSunday}
   , function (err, doc) {
       if (err) {
           // If it failed, return error
-          res.send(err);
+          res.send(collection);
       }
       else {
           // And forward to success page
-          res.redirect("mealCalendar");
+          res.send(collection);
       }
   });
 });
