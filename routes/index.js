@@ -72,6 +72,35 @@ router.get('/planMeals', function(req, res) {
   });
 });
 
+/*POST planMeals page */
+router.post('/planMeals', function(req, res) {
+
+  // Set our internal DB variable
+  var db = req.db;
+
+  // Set our collection
+  var collection = db.get('recipeList');
+
+  // Get our form values. These rely on the "name" attributes
+  var recipeSunday = req.body.sunday;
+
+
+  // Submit to the DB
+  collection.update({
+    "recipeName" : recipeSunday,
+    "datePlanned" : 1
+  }, function (err, doc) {
+      if (err) {
+          // If it failed, return error
+          res.send("There was a problem adding the information to the database.");
+      }
+      else {
+          // And forward to success page
+          res.redirect("mealCalendar");
+      }
+  });
+});
+
 /* GET recipelist page. */
 router.get('/recipelist', function(req, res) {
   var db = req.db;
