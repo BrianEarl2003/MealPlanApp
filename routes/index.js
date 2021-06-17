@@ -82,7 +82,7 @@ router.post('/planMeals', function(req, res) {
   var collection = db.get('recipeList');
 
   // Get our form values. These rely on the "name" attributes
-  var recipeSunday = JSON.parse(req.body.sunday);
+  var recipeSunday = req.body.sunday;
 
   // Submit to the DB
   collection.findOne({'recipeName' : recipeSunday}
