@@ -85,15 +85,15 @@ router.post('/planMeals', function(req, res) {
   var recipeSunday = req.body.sunday;
 
   // Submit to the DB
-  collection.findOne({'recipeName' : recipeSunday}
+  var entry = collection.findOne({'recipeName' : recipeSunday}
   , function (err, doc) {
       if (err) {
           // If it failed, return error
-          res.send(collection);
+          res.send(entry.recipeName);
       }
       else {
           // And forward to success page
-          res.send(collection);
+          res.send(entry.recipeName);
       }
   });
 });
