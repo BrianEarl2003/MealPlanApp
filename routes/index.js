@@ -83,20 +83,55 @@ router.post('/planMeals', function(req, res) {
 
   // Get our form values. These rely on the "name" attributes
   var recipeSunday = req.body.sunday;
+  var recipeMonday = req.body.monday;
+  var recipeTuesday = req.body.tuesday;
+  var recipeWednesday = req.body.wednesday;
+  var recipeThursday = req.body.thursday;
+  var recipeFriday = req.body.friday;
+  var recipeSaturday = req.body.saturday;
 
   // Submit to the DB
   collection.update(
     {'recipeName' : recipeSunday},
     { $set: {'datePlanned': 1}}
   , function (err, doc) {
-      if (err) {
-          // If it failed, return error
-          res.send(recipeSunday);
-      }
-      else {
-          // And forward to success page
-          res.redirect("/mealCalendar");
-      }
+    });
+
+  collection.update(
+    {'recipeName' : recipeMonday},
+    { $set: {'datePlanned': 2}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : recipeTuesday},
+    { $set: {'datePlanned': 3}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : recipeWednesday},
+    { $set: {'datePlanned': 4}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : recipeThursday},
+    { $set: {'datePlanned': 5}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : recipeFriday},
+    { $set: {'datePlanned': 6}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : recipeSaturday},
+    { $set: {'datePlanned': 7}}
+  , function (err, doc) {
+      res.redirect("/mealCalendar");
   });
 });
 
