@@ -84,6 +84,7 @@ router.post('/planMeals', function(req, res) {
   // Get our form values. These rely on the "name" attributes
   var recipeSunday = req.body.sunday;
 
+  console.log(recipeSunday)
 
   // Submit to the DB
   collection.update(
