@@ -82,18 +82,18 @@ router.post('/planMeals', function(req, res) {
   var collection = db.get('recipeList');
 
   // Get our form values. These rely on the "name" attributes
-  var recipeSunday = req.body.sunday;
+  var recipeSunday = JSON.parse(req.body.sunday);
 
   // Submit to the DB
-  var entry = collection.findOne({'recipeName' : recipeSunday}
+  collection.findOne({'recipeName' : recipeSunday}
   , function (err, doc) {
       if (err) {
           // If it failed, return error
-          res.send(entry.recipeName);
+          res.send(recipeSunday);
       }
       else {
           // And forward to success page
-          res.send(entry.recipeName);
+          res.redirect("/mealCalendar");
       }
   });
 });
