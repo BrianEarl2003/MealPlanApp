@@ -85,7 +85,7 @@ router.post('/planMeals', function(req, res) {
   var recipeSunday = req.body.sunday;
 
   // Submit to the DB
-  collection.updateOne(
+  collection.update(
     {'recipeName' : recipeSunday},
     { $set: {'datePlanned': 1}}
   , function (err, doc) {
