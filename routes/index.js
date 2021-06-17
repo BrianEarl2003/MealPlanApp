@@ -85,7 +85,9 @@ router.post('/planMeals', function(req, res) {
   var recipeSunday = req.body.sunday;
 
   // Submit to the DB
-  collection.findOne({'recipeName' : recipeSunday}
+  collection.updateOne(
+    {'recipeName' : recipeSunday},
+    { $set: {'datePlanned': 1}}
   , function (err, doc) {
       if (err) {
           // If it failed, return error
