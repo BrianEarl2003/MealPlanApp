@@ -84,8 +84,6 @@ router.post('/planMeals', function(req, res) {
   // Get our form values. These rely on the "name" attributes
   var recipeSunday = req.body.sunday;
 
-  console.log(recipeSunday)
-
   // Submit to the DB
   collection.update(
     {"recipeName" : recipeSunday},
@@ -93,7 +91,7 @@ router.post('/planMeals', function(req, res) {
   , function (err, doc) {
       if (err) {
           // If it failed, return error
-          res.send("There was a problem adding the information to the database.");
+          res.send(recipeSunday);
       }
       else {
           // And forward to success page
