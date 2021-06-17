@@ -62,8 +62,14 @@ router.get('/ingredientList', function(req, res, next) {
 });
 
 /* GET planMeals page */
-router.get('/planMeals', function(req, res, next) {
-  res.render('planMeals', { title: 'Plan Your Meals' });
+router.get('/planMeals', function(req, res) {
+  var db = req.db;
+  var collection = db.get('recipeList');
+  collection.find({},{},function(e,docs){
+    res.render('planMeals', { 
+    "recipelist" : docs,
+    title: 'Plan Your Meals' });
+  });
 });
 
 /* GET recipelist page. */
