@@ -72,7 +72,12 @@ router.get('/planMeals', function(req, res) {
   });
 });*/
 
-/*https://dev.to/sagdish/generate-unique-non-repeating-random-numbers-g6g*/
+
+
+/*POST mealCalendar page */
+router.post('/mealCalendar', function(req, res) {
+
+  /*https://dev.to/sagdish/generate-unique-non-repeating-random-numbers-g6g*/
 function randomUniqueNum(range, outputCount) {
 
   let arr = []
@@ -90,9 +95,6 @@ function randomUniqueNum(range, outputCount) {
 
   return result;
 }
-
-/*POST mealCalendar page */
-router.post('/mealCalendar', function(req, res) {
 
   // Set our internal DB variable
   var db = req.db;
