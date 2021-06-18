@@ -9,3 +9,7 @@
 .botborder {
     border-bottom: 3px solid black;
 }
+
+.input {
+    width: 12.5%;
+}
