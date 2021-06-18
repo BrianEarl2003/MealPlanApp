@@ -73,7 +73,7 @@ router.get('/planMeals', function(req, res) {
 });
 
 /*POST planMeals page */
-router.post('/planMeals', function(req, res) {
+router.post('/mealCalendar', function(req, res) {
 
   // Set our internal DB variable
   var db = req.db;
