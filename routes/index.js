@@ -145,7 +145,7 @@ router.post('/mealCalendar', function (req, res) {
   var collection = db.get('recipeList');
 
   // https://dev.to/sagdish/generate-unique-non-repeating-random-numbers-g6g
-  let range = collection.length;
+  let range = parseInt(collection.length);
   let outputCount = 7;
 
     let arr = []
@@ -160,7 +160,7 @@ router.post('/mealCalendar', function (req, res) {
       result.push(arr[random]);
       arr[random] = arr[range - i];
     }
-    
+
   collection.update(
     { 'recipeName': 'Famous Butter Chicken' },
     { $set: { 'datePlanned': result[0] } }
