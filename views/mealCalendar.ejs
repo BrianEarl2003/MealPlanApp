@@ -114,6 +114,88 @@
           </p>
         </div>
       </div>
+      
+      <form name="planMeals" id="formPlanMeals" method="post" action="/planMeals">
+        Sunday: <select name="sunday" id="sunday">
+          <option value="" selected="selected">Select a recipe...</option>
+          <%
+            var list = '';
+            for(i = 0; i < recipelist.length; i++) {
+              list += '<option>' + recipelist[i].recipeName + '</option>';
+            }
+          %>
+          <%- list%>
+        </select>
+        <br><br>
+        Monday: <select name="monday" id="monday">
+          <option value="" selected="selected">Select a recipe...</option>
+          <%
+            var list = '';
+            for(i = 0; i < recipelist.length; i++) {
+              list += '<option>' + recipelist[i].recipeName + '</option>';
+            }
+          %>
+          <%- list%>
+        </select>
+        <br><br>
+        Tuesday: <select name="tuesday" id="tuesday">
+          <option value="" selected="selected">Select a recipe...</option>
+          <%
+            var list = '';
+            for(i = 0; i < recipelist.length; i++) {
+              list += '<option>' + recipelist[i].recipeName + '</option>';
+            }
+          %>
+          <%- list%>
+        </select>
+        <br><br>
+        Wednesday: <select name="wednesday" id="wednesday">
+          <option value="" selected="selected">Select a recipe...</option>
+          <%
+            var list = '';
+            for(i = 0; i < recipelist.length; i++) {
+              list += '<option>' + recipelist[i].recipeName + '</option>';
+            }
+          %>
+          <%- list%>
+        </select>
+        <br><br>
+        Thursday: <select name="thursday" id="thursday">
+          <option value="" selected="selected">Select a recipe...</option>
+          <%
+            var list = '';
+            for(i = 0; i < recipelist.length; i++) {
+              list += '<option>' + recipelist[i].recipeName + '</option>';
+            }
+          %>
+          <%- list%>
+        </select>
+        <br><br>
+        Friday: <select name="friday" id="friday">
+          <option value="" selected="selected">Select a recipe...</option>
+          <%
+            var list = '';
+            for(i = 0; i < recipelist.length; i++) {
+              list += '<option >' + recipelist[i].recipeName + '</option>';
+            }
+          %>
+          <%- list%>
+        </select>
+        <br><br>
+        Saturday: <select name="saturday" id="saturday">
+          <option value="" selected="selected">Select a recipe...</option>
+          <%
+            var list = '';
+            for(i = 0; i < recipelist.length; i++) {
+              list += '<option>' + recipelist[i].recipeName + '</option>';
+            }
+          %>
+          <%- list%>
+        </select>
+        <br><br>
+        
+        <input type="submit" value="Submit">
+      </form>
 
     <div class="center">
       <a href="/">Main Menu</a>
