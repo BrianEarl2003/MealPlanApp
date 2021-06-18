@@ -61,7 +61,7 @@ router.get('/ingredientList', function (req, res, next) {
   res.render('ingredientList', { title: 'List of Ingredients' });
 });
 
-/* GET planMeals page 
+/* GET planMeals page  */
 router.get('/planMeals', function(req, res) {
   var db = req.db;
   var collection = db.get('recipeList');
@@ -70,14 +70,75 @@ router.get('/planMeals', function(req, res) {
     "recipelist" : docs,
     title: 'Plan Your Meals' });
   });
-});*/
+});
 
+/*POST planMeals page */
+router.post('/planMeals', function (req, res) {
 
+  // Set our internal DB variable
+  var db = req.db;
+
+  // Set our collection
+  var collection = db.get('recipeList');
+
+  // Get our form values. These rely on the "name" attributes
+  var recipeSunday = req.body.sunday;
+  var recipeMonday = req.body.monday;
+  var recipeTuesday = req.body.tuesday;
+  var recipeWednesday = req.body.wednesday;
+  var recipeThursday = req.body.thursday;
+  var recipeFriday = req.body.friday;
+  var recipeSaturday = req.body.saturday;
+
+  // Submit to the DB
+  collection.update(
+    {'recipeName' : recipeSunday},
+    { $set: {'datePlanned': 1}}
+  , function (err, doc) {
+    });
+
+  collection.update(
+    {'recipeName' : recipeMonday},
+    { $set: {'datePlanned': 2}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : recipeTuesday},
+    { $set: {'datePlanned': 3}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : recipeWednesday},
+    { $set: {'datePlanned': 4}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : recipeThursday},
+    { $set: {'datePlanned': 5}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : recipeFriday},
+    { $set: {'datePlanned': 6}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : recipeSaturday},
+    { $set: {'datePlanned': 7}}
+  , function (err, doc) {
+      res.redirect("/mealCalendar");
+  });
+});
 
 /*POST mealCalendar page */
 router.post('/mealCalendar', function (req, res) {
 
-  /*https://dev.to/sagdish/generate-unique-non-repeating-random-numbers-g6g*/
+  // https://dev.to/sagdish/generate-unique-non-repeating-random-numbers-g6g
   let range = 7;
   let outputCount = 7;
 
@@ -142,59 +203,6 @@ router.post('/mealCalendar', function (req, res) {
     , function (err, doc) {
       res.redirect("/mealCalendar");
     });
-
-  // Get our form values. These rely on the "name" attributes
-  /*var recipeSunday = req.body.sunday;
-  var recipeMonday = req.body.monday;
-  var recipeTuesday = req.body.tuesday;
-  var recipeWednesday = req.body.wednesday;
-  var recipeThursday = req.body.thursday;
-  var recipeFriday = req.body.friday;
-  var recipeSaturday = req.body.saturday;
-
-  // Submit to the DB
-  collection.update(
-    {'recipeName' : recipeSunday},
-    { $set: {'datePlanned': 1}}
-  , function (err, doc) {
-    });
-
-  collection.update(
-    {'recipeName' : recipeMonday},
-    { $set: {'datePlanned': 2}}
-  , function (err, doc) {
-  });
-
-  collection.update(
-    {'recipeName' : recipeTuesday},
-    { $set: {'datePlanned': 3}}
-  , function (err, doc) {
-  });
-
-  collection.update(
-    {'recipeName' : recipeWednesday},
-    { $set: {'datePlanned': 4}}
-  , function (err, doc) {
-  });
-
-  collection.update(
-    {'recipeName' : recipeThursday},
-    { $set: {'datePlanned': 5}}
-  , function (err, doc) {
-  });
-
-  collection.update(
-    {'recipeName' : recipeFriday},
-    { $set: {'datePlanned': 6}}
-  , function (err, doc) {
-  });
-
-  collection.update(
-    {'recipeName' : recipeSaturday},
-    { $set: {'datePlanned': 7}}
-  , function (err, doc) {
-      res.redirect("/mealCalendar");
-  });*/
 });
 
 /* GET recipelist page. */
