@@ -61,7 +61,7 @@ router.get('/ingredientList', function(req, res, next) {
   res.render('ingredientList', { title: 'List of Ingredients' });
 });
 
-/* GET planMeals page */
+/* GET planMeals page 
 router.get('/planMeals', function(req, res) {
   var db = req.db;
   var collection = db.get('recipeList');
@@ -70,9 +70,28 @@ router.get('/planMeals', function(req, res) {
     "recipelist" : docs,
     title: 'Plan Your Meals' });
   });
-});
+});*/
 
-/*POST planMeals page */
+/*https://dev.to/sagdish/generate-unique-non-repeating-random-numbers-g6g*/
+function randomUniqueNum(range, outputCount) {
+
+  let arr = []
+  for (let i = 1; i <= range; i++) {
+    arr.push(i)
+  }
+
+  let result = [];
+
+  for (let i = 1; i <= outputCount; i++) {
+    const random = Math.floor(Math.random() * (range - i));
+    result.push(arr[random]);
+    arr[random] = arr[range - i];
+  }
+
+  return result;
+}
+
+/*POST mealCalendar page */
 router.post('/mealCalendar', function(req, res) {
 
   // Set our internal DB variable
@@ -81,8 +100,51 @@ router.post('/mealCalendar', function(req, res) {
   // Set our collection
   var collection = db.get('recipeList');
 
+  collection.update(
+    {'recipeName' : 'Famous Butter Chicken'},
+    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
+  , function (err, doc) {
+    });
+
+  collection.update(
+    {'recipeName' : 'Spicy Chicken Lasagna Roll-ups'},
+    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : 'Navajo Tacos'},
+    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : 'Funeral Potatoes'},
+    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : 'Enchiladas'},
+    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : 'Manicotti'},
+    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
+  , function (err, doc) {
+  });
+
+  collection.update(
+    {'recipeName' : 'Homemade Frozen Pizza'},
+    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
+  , function (err, doc) {
+      res.redirect("/mealCalendar");
+  });
+
   // Get our form values. These rely on the "name" attributes
-  var recipeSunday = req.body.sunday;
+  /*var recipeSunday = req.body.sunday;
   var recipeMonday = req.body.monday;
   var recipeTuesday = req.body.tuesday;
   var recipeWednesday = req.body.wednesday;
@@ -132,7 +194,7 @@ router.post('/mealCalendar', function(req, res) {
     { $set: {'datePlanned': 7}}
   , function (err, doc) {
       res.redirect("/mealCalendar");
-  });
+  });*/
 });
 
 /* GET recipelist page. */
