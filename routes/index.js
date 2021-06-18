@@ -3,17 +3,17 @@ var router = express.Router();
 var ObjectId = require('monk').ObjectID;
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index', { title: 'Meal Plan App' });
 });
 
 /* GET addRecipe page */
-router.get('/addRecipe', function(req, res, next) {
+router.get('/addRecipe', function (req, res, next) {
   res.render('addRecipe', { title: 'Add a Recipe' });
 });
 
 /*POST addRecipe page */
-router.post('/addRecipe', function(req, res) {
+router.post('/addRecipe', function (req, res) {
 
   // Set our internal DB variable
   var db = req.db;
@@ -28,36 +28,36 @@ router.post('/addRecipe', function(req, res) {
 
   // Submit to the DB
   collection.insert({
-      "recipeName" : recipeName,
-      "ingredients" : recipeIngredients,
-      "prepMethod" : recipePrepMethod
+    "recipeName": recipeName,
+    "ingredients": recipeIngredients,
+    "prepMethod": recipePrepMethod
   }, function (err, doc) {
-      if (err) {
-          // If it failed, return error
-          res.send("There was a problem adding the information to the database.");
-      }
-      else {
-          // And forward to success page
-          res.redirect("recipeList");
-      }
+    if (err) {
+      // If it failed, return error
+      res.send("There was a problem adding the information to the database.");
+    }
+    else {
+      // And forward to success page
+      res.redirect("recipeList");
+    }
   });
 
 });
 
 /* GET mealCalendar page */
-router.get('/mealCalendar', function(req, res, next) {
+router.get('/mealCalendar', function (req, res, next) {
   var db = req.db;
   var collection = db.get('recipeList');
-  collection.find({},{},function(e,docs){
-      res.render('mealCalendar', {
-          "recipelist" : docs,
-          title: 'Meal Calendar'
-      });
+  collection.find({}, {}, function (e, docs) {
+    res.render('mealCalendar', {
+      "recipelist": docs,
+      title: 'Meal Calendar'
+    });
   });
 });
 
 /* GET ingredientList page */
-router.get('/ingredientList', function(req, res, next) {
+router.get('/ingredientList', function (req, res, next) {
   res.render('ingredientList', { title: 'List of Ingredients' });
 });
 
@@ -75,26 +75,26 @@ router.get('/planMeals', function(req, res) {
 
 
 /*POST mealCalendar page */
-router.post('/mealCalendar', function(req, res) {
+router.post('/mealCalendar', function (req, res) {
 
   /*https://dev.to/sagdish/generate-unique-non-repeating-random-numbers-g6g*/
-function randomUniqueNum(range, outputCount) {
+  function randomUniqueNum(range, outputCount) {
 
-  let arr = []
-  for (let i = 1; i <= range; i++) {
-    arr.push(i)
+    let arr = []
+    for (let i = 1; i <= range; i++) {
+      arr.push(i)
+    }
+
+    let result = [];
+
+    for (let i = 1; i <= outputCount; i++) {
+      const random = Math.floor(Math.random() * (range - i));
+      result.push(arr[random]);
+      arr[random] = arr[range - i];
+    }
+
+    return result;
   }
-
-  let result = [];
-
-  for (let i = 1; i <= outputCount; i++) {
-    const random = Math.floor(Math.random() * (range - i));
-    result.push(arr[random]);
-    arr[random] = arr[range - i];
-  }
-
-  return result;
-}
 
   // Set our internal DB variable
   var db = req.db;
@@ -103,47 +103,47 @@ function randomUniqueNum(range, outputCount) {
   var collection = db.get('recipeList');
 
   collection.update(
-    {'recipeName' : 'Famous Butter Chicken'},
-    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
-  , function (err, doc) {
+    { 'recipeName': 'Famous Butter Chicken' },
+    { $set: { 'datePlanned': randomUniqueNum(7, 7)[0] } }
+    , function (err, doc) {
     });
 
   collection.update(
-    {'recipeName' : 'Spicy Chicken Lasagna Roll-ups'},
-    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
-  , function (err, doc) {
-  });
+    { 'recipeName': 'Spicy Chicken Lasagna Roll-ups' },
+    { $set: { 'datePlanned': randomUniqueNum(7, 7)[1] } }
+    , function (err, doc) {
+    });
 
   collection.update(
-    {'recipeName' : 'Navajo Tacos'},
-    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
-  , function (err, doc) {
-  });
+    { 'recipeName': 'Navajo Tacos' },
+    { $set: { 'datePlanned': randomUniqueNum(7, 7)[2] } }
+    , function (err, doc) {
+    });
 
   collection.update(
-    {'recipeName' : 'Funeral Potatoes'},
-    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
-  , function (err, doc) {
-  });
+    { 'recipeName': 'Funeral Potatoes' },
+    { $set: { 'datePlanned': randomUniqueNum(7, 7)[3] } }
+    , function (err, doc) {
+    });
 
   collection.update(
-    {'recipeName' : 'Enchiladas'},
-    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
-  , function (err, doc) {
-  });
+    { 'recipeName': 'Enchiladas' },
+    { $set: { 'datePlanned': randomUniqueNum(7, 7)[4] } }
+    , function (err, doc) {
+    });
 
   collection.update(
-    {'recipeName' : 'Manicotti'},
-    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
-  , function (err, doc) {
-  });
+    { 'recipeName': 'Manicotti' },
+    { $set: { 'datePlanned': randomUniqueNum(7, 7)[5] } }
+    , function (err, doc) {
+    });
 
   collection.update(
-    {'recipeName' : 'Homemade Frozen Pizza'},
-    { $set: {'datePlanned': randomUniqueNum(7, 7)}}
-  , function (err, doc) {
+    { 'recipeName': 'Homemade Frozen Pizza' },
+    { $set: { 'datePlanned': randomUniqueNum(7, 7)[6] } }
+    , function (err, doc) {
       res.redirect("/mealCalendar");
-  });
+    });
 
   // Get our form values. These rely on the "name" attributes
   /*var recipeSunday = req.body.sunday;
@@ -200,29 +200,29 @@ function randomUniqueNum(range, outputCount) {
 });
 
 /* GET recipelist page. */
-router.get('/recipelist', function(req, res) {
+router.get('/recipelist', function (req, res) {
   var db = req.db;
   var collection = db.get('recipeList');
-  collection.find({},{},function(e,docs){
-      res.render('recipelist', {
-          "recipelist" : docs
-      });
+  collection.find({}, {}, function (e, docs) {
+    res.render('recipelist', {
+      "recipelist": docs
+    });
   });
 });
 
 /* GET viewRecipe page */
-router.get('/viewRecipe/:recipeID', function(req, res, next) {
+router.get('/viewRecipe/:recipeID', function (req, res, next) {
   var db = req.db;
 
   var recipeID = JSON.parse(req.params.recipeID);
   var collection = db.get('recipeList');
 
-  collection.findOne({'_id': recipeID},function(e,docs){
+  collection.findOne({ '_id': recipeID }, function (e, docs) {
     res.render('viewRecipe', {
-        "recipe" : docs,
-        title: 'View Recipe'
+      "recipe": docs,
+      title: 'View Recipe'
     });
-});
+  });
 });
 
 module.exports = router;
