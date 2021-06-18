@@ -78,7 +78,8 @@ router.get('/planMeals', function(req, res) {
 router.post('/mealCalendar', function (req, res) {
 
   /*https://dev.to/sagdish/generate-unique-non-repeating-random-numbers-g6g*/
-  function randomUniqueNum(range, outputCount) {
+  let range = 7;
+  let outputCount = 7;
 
     let arr = []
     for (let i = 1; i <= range; i++) {
@@ -93,9 +94,6 @@ router.post('/mealCalendar', function (req, res) {
       arr[random] = arr[range - i];
     }
 
-    return result;
-  }
-
   // Set our internal DB variable
   var db = req.db;
 
@@ -104,43 +102,43 @@ router.post('/mealCalendar', function (req, res) {
 
   collection.update(
     { 'recipeName': 'Famous Butter Chicken' },
-    { $set: { 'datePlanned': randomUniqueNum(7, 7)[0] } }
+    { $set: { 'datePlanned': result[0] } }
     , function (err, doc) {
     });
 
   collection.update(
     { 'recipeName': 'Spicy Chicken Lasagna Roll-ups' },
-    { $set: { 'datePlanned': randomUniqueNum(7, 7)[1] } }
+    { $set: { 'datePlanned': result[1] } }
     , function (err, doc) {
     });
 
   collection.update(
     { 'recipeName': 'Navajo Tacos' },
-    { $set: { 'datePlanned': randomUniqueNum(7, 7)[2] } }
+    { $set: { 'datePlanned': result[2] } }
     , function (err, doc) {
     });
 
   collection.update(
     { 'recipeName': 'Funeral Potatoes' },
-    { $set: { 'datePlanned': randomUniqueNum(7, 7)[3] } }
+    { $set: { 'datePlanned': result[3] } }
     , function (err, doc) {
     });
 
   collection.update(
     { 'recipeName': 'Enchiladas' },
-    { $set: { 'datePlanned': randomUniqueNum(7, 7)[4] } }
+    { $set: { 'datePlanned': result[4] } }
     , function (err, doc) {
     });
 
   collection.update(
     { 'recipeName': 'Manicotti' },
-    { $set: { 'datePlanned': randomUniqueNum(7, 7)[5] } }
+    { $set: { 'datePlanned': result[5] } }
     , function (err, doc) {
     });
 
   collection.update(
     { 'recipeName': 'Homemade Frozen Pizza' },
-    { $set: { 'datePlanned': randomUniqueNum(7, 7)[6] } }
+    { $set: { 'datePlanned': result[6] } }
     , function (err, doc) {
       res.redirect("/mealCalendar");
     });
