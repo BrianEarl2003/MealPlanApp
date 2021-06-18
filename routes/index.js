@@ -138,8 +138,14 @@ router.post('/planMeals', function (req, res) {
 /*POST mealCalendar page */
 router.post('/mealCalendar', function (req, res) {
 
+  // Set our internal DB variable
+  var db = req.db;
+
+  // Set our collection
+  var collection = db.get('recipeList');
+
   // https://dev.to/sagdish/generate-unique-non-repeating-random-numbers-g6g
-  let range = 7;
+  let range = collection.length;
   let outputCount = 7;
 
     let arr = []
@@ -154,13 +160,7 @@ router.post('/mealCalendar', function (req, res) {
       result.push(arr[random]);
       arr[random] = arr[range - i];
     }
-
-  // Set our internal DB variable
-  var db = req.db;
-
-  // Set our collection
-  var collection = db.get('recipeList');
-
+    
   collection.update(
     { 'recipeName': 'Famous Butter Chicken' },
     { $set: { 'datePlanned': result[0] } }
