@@ -51,9 +51,11 @@ window.onload = function(e) {
         var days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
         for (i = 0; i < 7; i++) {
-            var currentDayRecipe = document.getElementById(days[i]);
+            var e = document.getElementById(days[i]);
+            var currentDayRecipe = e.options[e.selectedIndex].text;
             for (j = 0; j < 7; j++) {
-                var otherDayRecipe = document.getElementById(days[j]);
+                var f = document.getElementById(days[j]);
+                var otherDayRecipe = f.options[f.selectedIndex].text;
                 if ((currentDayRecipe == otherDayRecipe) || (currentDayRecipe == "")) {
                     randomizeSelect(days[j]);
                 }
