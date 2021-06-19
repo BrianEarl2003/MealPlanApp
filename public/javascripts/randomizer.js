@@ -40,5 +40,11 @@ window.onload = function(e) {
 
     document.getElementById("randomize").onclick = function(e) {
         randomizeSelect("sunday");
+        randomizeSelect("monday");
+        randomizeSelect("tuesday");
+        randomizeSelect("wednesday");
+        randomizeSelect("thursday");
+        randomizeSelect("friday");
+        randomizeSelect("saturday");
     }
 }
