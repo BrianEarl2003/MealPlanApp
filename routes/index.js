@@ -61,7 +61,16 @@ router.get('/mealCalendar', function (req, res, next) {
 
 /* GET ingredientList page */
 router.get('/ingredientList', function (req, res, next) {
-  res.render('ingredientList', { title: 'List of Ingredients' });
+  var db = req.db;
+
+  var collection = db.get('recipeList');
+
+  collection.find({'datePlanned': {$ne : 0} }, function (e, docs) {
+    res.render('ingredientList', {
+      "ingredients": docs,
+      title: 'View Ingredients'
+    });
+  });
 });
 
 /* GET planMeals page  */
