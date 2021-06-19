@@ -46,5 +46,18 @@ window.onload = function(e) {
         randomizeSelect("thursday");
         randomizeSelect("friday");
         randomizeSelect("saturday");
+
+        //gotta make sure that they're all unique
+        var days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+
+        for (i = 0; i < 7; i++) {
+            var currentDayRecipe = document.getElementById(days[i]);
+            for (j = 0; j < 7; j++) {
+                var otherDayRecipe = document.getElementById(days[j]);
+                if ((currentDayRecipe == otherDayRecipe) || (currentDayRecipe == "")) {
+                    randomizeSelect(days[j]);
+                }
+            }
+        }
     }
 }
