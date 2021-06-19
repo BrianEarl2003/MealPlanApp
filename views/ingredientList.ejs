@@ -20,7 +20,9 @@
         <%
           var list = '';
           for (i = 0; i < ingredients.length; i++) {
-            list += '<li>' + ingredients[i].recipeName + '</li>';
+            for (j = 0; j < ingredients[i].ingredients[j].length; j++) {
+              list += '<li>' + ingredients[i].ingredients[j] + '</li>';
+            }
           }
         %>
         <%- list%>
