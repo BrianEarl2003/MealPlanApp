@@ -102,6 +102,14 @@ router.post('/planMeals', function (req, res) {
   var recipeFriday = req.body.friday;
   var recipeSaturday = req.body.saturday;
 
+  //Let's clear last week's recipe...
+  collection.update(
+    {'_id' : {$ne : null} },
+    {'datePlanned' : 0},
+    {'multi' : true},
+    function (err, doc) {}
+  );
+
   // Submit to the DB
   collection.update(
     {'recipeName' : recipeSunday},
@@ -145,76 +153,6 @@ router.post('/planMeals', function (req, res) {
   , function (err, doc) {
       res.redirect("/mealCalendar");
   });
-});
-
-/*POST mealCalendar page */
-router.post('/mealCalendar', function (req, res) {
-
-  // Set our internal DB variable
-  var db = req.db;
-
-  // Set our collection
-  var collection = db.get('recipeList');
-
-  // https://dev.to/sagdish/generate-unique-non-repeating-random-numbers-g6g
-  let range = 8;
-  let outputCount = 7;
-
-    let arr = []
-    for (let i = 1; i <= range; i++) {
-      arr.push(i)
-    }
-
-    let result = [];
-
-    for (let i = 1; i <= outputCount; i++) {
-      const random = Math.floor(Math.random() * (range - i));
-      result.push(arr[random]);
-      arr[random] = arr[range - i];
-    }
-
-  collection.update(
-    { 'recipeName': 'Famous Butter Chicken' },
-    { $set: { 'datePlanned': result[0] } }
-    , function (err, doc) {
-    });
-
-  collection.update(
-    { 'recipeName': 'Spicy Chicken Lasagna Roll-ups' },
-    { $set: { 'datePlanned': result[1] } }
-    , function (err, doc) {
-    });
-
-  collection.update(
-    { 'recipeName': 'Navajo Tacos' },
-    { $set: { 'datePlanned': result[2] } }
-    , function (err, doc) {
-    });
-
-  collection.update(
-    { 'recipeName': 'Funeral Potatoes' },
-    { $set: { 'datePlanned': result[3] } }
-    , function (err, doc) {
-    });
-
-  collection.update(
-    { 'recipeName': 'Enchiladas' },
-    { $set: { 'datePlanned': result[4] } }
-    , function (err, doc) {
-    });
-
-  collection.update(
-    { 'recipeName': 'Manicotti' },
-    { $set: { 'datePlanned': result[5] } }
-    , function (err, doc) {
-    });
-
-  collection.update(
-    { 'recipeName': 'Homemade Frozen Pizza' },
-    { $set: { 'datePlanned': result[6] } }
-    , function (err, doc) {
-      res.redirect("/mealCalendar");
-    });
 });
 
 /* GET recipelist page. */
