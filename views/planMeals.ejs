@@ -97,84 +97,121 @@
           <br><br>
 
           -->
-          <div class="row"> 
+
+          <div class="row">
             <div class="col fullborder" id="1">
               <h2 class="botborder center">Sunday</h2>
               <p>
-                <select class="input" name="sunday" id="sunday">
-                  <option value="" selected="selected">Select a recipe...</option>
-                  <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                    + '</option>' ; } %>
-                    <%- list%>
+                <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==1) {
+                  recipe='<div><a href="/viewRecipe/' + recipelist[i]._id + '">' + recipelist[i].recipeName + '</a></div>' ; }
+                  } %>
+                  <%- recipe %>
+                    <br>
+                    <select class="input" name="sunday" id="sunday">
+                      <option value="" selected="selected">Select a recipe...</option>
+                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
+                        + '</option>' ; } %>
+                        <%- list%>
+                    </select>
               </p>
             </div>
-            <div class="row"> 
-              <div class="col fullborder" id="1">
-                <h2 class="botborder center">Monday</h2>
-                <p>
-                  <select class="input" name="monday" id="monday">
-                    <option value="" selected="selected">Select a recipe...</option>
-                    <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                      + '</option>' ; } %>
-                      <%- list%>
-                </p>
-              </div>
-              <div class="row"> 
-                <div class="col fullborder" id="1">
-                  <h2 class="botborder center">Tuesday</h2>
-                  <p>
+            <div class="col fullborder" id="2">
+              <h2 class="botborder center">Monday</h2>
+              <p>
+                <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==2) {
+                  recipe='<div><a href="/viewRecipe/' + recipelist[i]._id + '">' + recipelist[i].recipeName + '</a></div>' ; }
+                  } %>
+                  <%- recipe %>
+                    <br>
+                    <select class="input" name="monday" id="monday">
+                      <option value="" selected="selected">Select a recipe...</option>
+                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
+                        + '</option>' ; } %>
+                        <%- list%>
+                    </select>
+              </p>
+            </div>
+            <div class="col fullborder" id="3">
+              <h2 class="botborder center">Tuesday</h2>
+              <p>
+                <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==3) {
+                  recipe='<div><a href="/viewRecipe/' + recipelist[i]._id + '">' + recipelist[i].recipeName + '</a></div>' ; }
+                  } %>
+                  <%- recipe %>
+                    <br>
                     <select class="input" name="tuesday" id="tuesday">
                       <option value="" selected="selected">Select a recipe...</option>
                       <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
                         + '</option>' ; } %>
                         <%- list%>
-                  </p>
-                </div>
-                <div class="row"> 
-                  <div class="col fullborder" id="1">
-                    <h2 class="botborder center">Wednesday</h2>
-                    <p>
-                      <select class="input" name="wednesday" id="wednesday">
-                        <option value="" selected="selected">Select a recipe...</option>
-                        <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                          + '</option>' ; } %>
-                          <%- list%>
-                    </p>
-                  </div>
-                  <div class="row"> 
-                    <div class="col fullborder" id="1">
-                      <h2 class="botborder center">Thursday</h2>
-                      <p>
-                        <select class="input" name="thursday" id="thursday">
-                          <option value="" selected="selected">Select a recipe...</option>
-                          <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                            + '</option>' ; } %>
-                            <%- list%>
-                      </p>
-                    </div>
-                    <div class="row"> 
-                      <div class="col fullborder" id="1">
-                        <h2 class="botborder center">Friday</h2>
-                        <p>
-                          <select class="input" name="friday" id="friday">
-                            <option value="" selected="selected">Select a recipe...</option>
-                            <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                              + '</option>' ; } %>
-                              <%- list%>
-                        </p>
-                      </div>
-                      <div class="row"> 
-                        <div class="col fullborder" id="1">
-                          <h2 class="botborder center">Saturday</h2>
-                          <p>
-                            <select class="input" name="saturday" id="saturday">
-                              <option value="" selected="selected">Select a recipe...</option>
-                              <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                                + '</option>' ; } %>
-                                <%- list%>
-                          </p>
-                        </div>
-          
+                    </select>
+              </p>
+            </div>
+            <div class="col fullborder" id="4">
+              <h2 class="botborder center">Wednesday</h2>
+              <p>
+                <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==4) {
+                  recipe='<div><a href="/viewRecipe/' + recipelist[i]._id + '">' + recipelist[i].recipeName + '</a></div>' ; }
+                  } %>
+                  <%- recipe %>
+                    <br>
+                    <select class="input" name="wednesday" id="wednesday">
+                      <option value="" selected="selected">Select a recipe...</option>
+                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
+                        + '</option>' ; } %>
+                        <%- list%>
+                    </select>
+              </p>
+            </div>
+            <div class="col fullborder" id="5">
+              <h2 class="botborder center">Thursday</h2>
+              <p>
+                <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==5) {
+                  recipe='<div><a href="/viewRecipe/' + recipelist[i]._id + '">' + recipelist[i].recipeName + '</a></div>' ; }
+                  } %>
+                  <%- recipe %>
+                    <br>
+                    <select class="input" name="thursday" id="thursday">
+                      <option value="" selected="selected">Select a recipe...</option>
+                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
+                        + '</option>' ; } %>
+                        <%- list%>
+                    </select>
+              </p>
+            </div>
+            <div class="col fullborder" id="6">
+              <h2 class="botborder center">Friday</h2>
+              <p>
+                <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==6) {
+                  recipe='<div><a href="/viewRecipe/' + recipelist[i]._id + '">' + recipelist[i].recipeName + '</a></div>' ; }
+                  } %>
+                  <%- recipe %>
+                    <br>
+                    <select class="input" name="friday" id="friday">
+                      <option value="" selected="selected">Select a recipe...</option>
+                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option >' + recipelist[i].recipeName
+                        + '</option>' ; } %>
+                        <%- list%>
+                    </select>
+              </p>
+            </div>
+            <div class="col fullborder" id="7">
+              <h2 class="botborder center">Saturday</h2>
+              <p>
+                <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==7) {
+                  recipe='<div><a href="/viewRecipe/' + recipelist[i]._id + '">' + recipelist[i].recipeName + '</a></div>' ; }
+                  } %>
+                  <%- recipe %>
+                    <br>
+                    <select class="input" name="saturday" id="saturday">
+                      <option value="" selected="selected">Select a recipe...</option>
+                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
+                        + '</option>' ; } %>
+                        <%- list%>
+                    </select>
+              </p>
+            </div>
+          </div>
           <input type="submit" value="Submit">
         </form>
       </div>
