@@ -105,7 +105,8 @@ router.post('/planMeals', function (req, res) {
   //Let's clear last week's recipe...
   collection.updateMany(
     {'_id' : {$ne : null} },
-    {'datePlanned' : 0},
+    { $set: {'datePlanned' : 0}},
+    {'multi' : true},
     function (err, doc) {}
   );
 
