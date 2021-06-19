@@ -22,7 +22,7 @@
           for (i = 0; i < recipelist.length; i++) {
             list += '<div id="formAddRecipe"><div class="ingredPrep"><p class="title"><strong class="cursive">Recipe: </strong><span class="underline handwriting">' + recipelist[i].recipeName + '</span></p><p class="text"><strong class="cursive">Ingredients: </strong><span class="underline handwriting"><ul>';
             for (j = 0; j < recipelist[i].ingredients.length; j++) {
-              list += recipelist[i].ingredients[j];
+              list += '<li>' + recipelist[i].ingredients[j] + '</li>';
             }
             list += '</ul></span></p><p class="text"><strong class="cursive">Preparation: </strong><span class="underline handwriting">' + recipelist[i].prepMethod + '</span></p></div></div>';
             if (i < (recipelist.length - 1)) {
