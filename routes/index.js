@@ -145,7 +145,7 @@ router.post('/mealCalendar', function (req, res) {
   var collection = db.get('recipeList');
 
   // https://dev.to/sagdish/generate-unique-non-repeating-random-numbers-g6g
-  let range = Object.keys(data.collection[i]).length;
+  let range = Object.keys(collection[i]).length;
   let outputCount = 7;
 
     let arr = []
