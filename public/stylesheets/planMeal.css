@@ -1,0 +1,15 @@
+.center {
+    text-align: center;
+}
+
+.fullborder {
+    border: 3px solid black;
+}
+
+.botborder {
+    border-bottom: 3px solid black;
+}
+
+.input {
+    width: 90%;
+}
