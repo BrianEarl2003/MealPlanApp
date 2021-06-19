@@ -4,7 +4,7 @@ function randomizeSelect(selectId) {
     
     var random = 0;
     do {
-        random = Math.floor(7 * (Math.random() % 1));
+        random = Math.floor(options.length * (Math.random() % 1));
     } while (random == 0);
     
     var option = options[random];
