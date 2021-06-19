@@ -8,11 +8,12 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
+    "ejs": "^2.7.4",
+    "express": "^4.17.1",
     "http-errors": "~1.6.3",
-    "mongodb": "^3.5.4",
-    "monk": "^7.1.2",
-    "morgan": "~1.9.1"
+    "mongodb": "~3.6.9",
+    "monk": "~7.3.4",
+    "morgan": "~1.9.1",
+    "trace": "^3.1.1"
   }
 }
