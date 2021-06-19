@@ -67,7 +67,7 @@ router.get('/ingredientList', function (req, res, next) {
 
   collection.find({'datePlanned': {$ne : 0} }, function (e, docs) {
     res.render('ingredientList', {
-      "ingredients": docs,
+      "recipes": docs,
       title: 'View Ingredients'
     });
   });

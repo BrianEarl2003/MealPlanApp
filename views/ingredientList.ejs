@@ -19,9 +19,9 @@
         <ul>
         <%
           var list = '';
-          for (i = 0; i < ingredients.length; i++) {
-            for (j = 0; j < ingredients[i].ingredients[j].length; j++) {
-              list += '<li>' + ingredients[i].ingredients[j] + '</li>';
+          for (i = 0; i < recipes.length; i++) {
+            for (j = 0; j < recipes[i].ingredients.length; j++) {
+              list += '<li>' + recipes[i].ingredients[j] + '</li>';
             }
           }
         %>
