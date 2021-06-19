@@ -23,13 +23,16 @@ router.post('/addRecipe', function (req, res) {
   var recipeIngredients = req.body.recipeIngredients;
   var recipePrepMethod = req.body.prepMethod;
 
+  //We'll now add the ingredients to an array;
+  var ingredients = recipeIngredients.split(";");
+
   // Set our collection
   var collection = db.get('recipeList');
 
   // Submit to the DB
   collection.insert({
     "recipeName": recipeName,
-    "ingredients": recipeIngredients,
+    "ingredients": ingredients,
     "prepMethod": recipePrepMethod
   }, function (err, doc) {
     if (err) {
