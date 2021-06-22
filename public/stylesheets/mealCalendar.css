@@ -13,3 +13,8 @@
 .input {
     width: 90%;
 }
+
+.recipeImage {
+    width: 100%;
+    height: auto;
+}

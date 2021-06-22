@@ -103,12 +103,12 @@ router.post('/planMeals', function (req, res) {
   var recipeSaturday = req.body.saturday;
 
   //Let's clear last week's recipes...
-  collection.update(
+  /*collection.update(
     {'_id' : {$ne : null} },
     { $set: {'datePlanned' : 0}},
     {'multi' : true},
     function (err, doc) {}
-  );
+  );*/
 
   // Submit to the DB
   collection.update(
