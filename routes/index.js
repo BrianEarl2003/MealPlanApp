@@ -85,7 +85,7 @@ router.get('/planMeals', function(req, res) {
 });
 
 /*POST planMeals page */
-router.post('/planMeals', function (req, res) {
+router.post('/planMeals', async function (req, res) {
 
   // Set our internal DB variable
   var db = req.db;
@@ -102,13 +102,14 @@ router.post('/planMeals', function (req, res) {
   var recipeFriday = req.body.friday;
   var recipeSaturday = req.body.saturday;
 
-  //Let's clear last week's recipes...
-  /*collection.update(
+  collection.update(
     {'_id' : {$ne : null} },
     { $set: {'datePlanned' : 0}},
     {'multi' : true},
     function (err, doc) {}
-  );*/
+  );
+
+  await resolveAfter2Seconds();
 
   // Submit to the DB
   collection.update(
@@ -180,5 +181,13 @@ router.get('/viewRecipe/:recipeID', function (req, res, next) {
     });
   });
 });
+
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 500);
+  });
+}
 
 module.exports = router;
