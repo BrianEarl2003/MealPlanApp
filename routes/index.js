@@ -71,15 +71,11 @@ router.get('/ingredientList', function (req, res, next) {
 
     for (i = 0; i < docs.length; i++) {
       for (j = 0; j < docs[i].ingredients.length; j++) {
-        ingredients.push(docs[i].ingredients[j]);
+        ingredients.push(docs[i].ingredients[j]/*.split(" ")*/);
       }
     }
 
     ingredients.sort();
-
-    for (i = 0; i < ingredients.length; i++) {
-      console.log(ingredients[i].charCodeAt(0));
-    }
 
     res.render('ingredientList', {
       "recipes": ingredients,
