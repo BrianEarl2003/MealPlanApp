@@ -52,6 +52,8 @@ router.get('/mealCalendar', function (req, res, next) {
   var db = req.db;
   var collection = db.get('recipeList');
   collection.find({}, {}, function (e, docs) {
+    var str = "How are you doing today?";
+var res = str.toString.split(" ");
     res.render('mealCalendar', {
       "recipelist": docs,
       title: 'Meal Calendar'
@@ -66,8 +68,23 @@ router.get('/ingredientList', function (req, res, next) {
   var collection = db.get('recipeList');
 
   collection.find({'datePlanned': {$ne : 0} }, function (e, docs) {
+
+    var ingredients = [];
+
+    for (i = 0; i < docs.length; i++) {
+      for (j = 0; j < docs[i].ingredients.length; j++) {
+        ingredients.push(docs[i].ingredients[j]);
+      }
+    }
+
+    ingredients.sort();
+
+    for (i = 0; i < ingredients.length; i++) {
+      console.log(ingredients[i].charCodeAt(0));
+    }
+
     res.render('ingredientList', {
-      "recipes": docs,
+      "recipes": ingredients,
       title: 'View Ingredients'
     });
   });

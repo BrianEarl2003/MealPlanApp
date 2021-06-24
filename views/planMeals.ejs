@@ -22,9 +22,13 @@
               <h2 class="botborder center">Sunday</h2>
               <p>
                     <select class="input" name="sunday" id="sunday">
-                      <option value="" selected="selected">&nbsp;</option>
-                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                        + '</option>' ; } %>
+                      <%
+                        var list = '';
+                        for (i = 0; i < recipelist.length; i++) {
+                          if (recipelist[i].datePlanned == 1) {list +='<option selected ="selected">' + recipelist[i].recipeName + '</option>' ;}
+                          else {list +='<option>' + recipelist[i].recipeName + '</option>' ;}
+                        }
+                      %>  
                         <%- list%>
                     </select>
               </p>
@@ -34,8 +38,13 @@
               <p>
                     <select class="input" name="monday" id="monday">
                       <option value="" selected="selected">&nbsp;</option>
-                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                        + '</option>' ; } %>
+                      <%
+                      var list = '';
+                      for (i = 0; i < recipelist.length; i++) {
+                        if (recipelist[i].datePlanned == 2) {list +='<option selected ="selected">' + recipelist[i].recipeName + '</option>' ;}
+                        else {list +='<option>' + recipelist[i].recipeName + '</option>' ;}
+                      }
+                    %> 
                         <%- list%>
                     </select>
               </p>
@@ -45,8 +54,13 @@
               <p>
                     <select class="input" name="tuesday" id="tuesday">
                       <option value="" selected="selected">&nbsp;</option>
-                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                        + '</option>' ; } %>
+                      <%
+                        var list = '';
+                        for (i = 0; i < recipelist.length; i++) {
+                          if (recipelist[i].datePlanned == 3) {list +='<option selected ="selected">' + recipelist[i].recipeName + '</option>' ;}
+                          else {list +='<option>' + recipelist[i].recipeName + '</option>' ;}
+                        }
+                      %> 
                         <%- list%>
                     </select>
               </p>
@@ -56,8 +70,13 @@
               <p>
                     <select class="input" name="wednesday" id="wednesday">
                       <option value="" selected="selected">&nbsp;</option>
-                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                        + '</option>' ; } %>
+                      <%
+                        var list = '';
+                        for (i = 0; i < recipelist.length; i++) {
+                          if (recipelist[i].datePlanned == 4) {list +='<option selected ="selected">' + recipelist[i].recipeName + '</option>' ;}
+                          else {list +='<option>' + recipelist[i].recipeName + '</option>' ;}
+                        }
+                      %> 
                         <%- list%>
                     </select>
               </p>
@@ -67,8 +86,13 @@
               <p>
                     <select class="input" name="thursday" id="thursday">
                       <option value="" selected="selected">&nbsp;</option>
-                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                        + '</option>' ; } %>
+                      <%
+                        var list = '';
+                        for (i = 0; i < recipelist.length; i++) {
+                          if (recipelist[i].datePlanned == 5) {list +='<option selected ="selected">' + recipelist[i].recipeName + '</option>' ;}
+                          else {list +='<option>' + recipelist[i].recipeName + '</option>' ;}
+                        }
+                      %> 
                         <%- list%>
                     </select>
               </p>
@@ -78,8 +102,13 @@
               <p>
                     <select class="input" name="friday" id="friday">
                       <option value="" selected="selected">&nbsp;</option>
-                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option >' + recipelist[i].recipeName
-                        + '</option>' ; } %>
+                      <%
+                        var list = '';
+                        for (i = 0; i < recipelist.length; i++) {
+                          if (recipelist[i].datePlanned == 6) {list +='<option selected ="selected">' + recipelist[i].recipeName + '</option>' ;}
+                          else {list +='<option>' + recipelist[i].recipeName + '</option>' ;}
+                        }
+                      %> 
                         <%- list%>
                     </select>
               </p>
@@ -89,8 +118,13 @@
               <p>
                     <select class="input" name="saturday" id="saturday">
                       <option value="" selected="selected">&nbsp;</option>
-                      <% var list='' ; for(i=0; i < recipelist.length; i++) { list +='<option>' + recipelist[i].recipeName
-                        + '</option>' ; } %>
+                      <%
+                        var list = '';
+                        for (i = 0; i < recipelist.length; i++) {
+                          if (recipelist[i].datePlanned == 7) {list +='<option selected ="selected">' + recipelist[i].recipeName + '</option>' ;}
+                          else {list +='<option>' + recipelist[i].recipeName + '</option>' ;}
+                        }
+                      %> 
                         <%- list%>
                     </select>
               </p>
@@ -98,6 +132,7 @@
           </div>
           <input type="submit" value="Submit">
           <button type="button" id="randomize">Random</button>
+          <button type="button" onclick="location.href = '/mealCalendar';">Cancel</button>
         </form>
       </div>
 
