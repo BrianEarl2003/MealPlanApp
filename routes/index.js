@@ -52,8 +52,6 @@ router.get('/mealCalendar', function (req, res, next) {
   var db = req.db;
   var collection = db.get('recipeList');
   collection.find({}, {}, function (e, docs) {
-    var str = "How are you doing today?";
-var res = str.toString.split(" ");
     res.render('mealCalendar', {
       "recipelist": docs,
       title: 'Meal Calendar'
