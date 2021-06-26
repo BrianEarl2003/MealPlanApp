@@ -21,20 +21,29 @@
 
   <form id="formAddRecipe" name="addRecipe" method="post" action="/addRecipe">
     <div class="form-group">
-      <input class="form-control recipeForm" id="inputRecipeName" type="text" placeholder="Recipe Title"
-        name="recipeName" />
-      <div id="ingredPrep">
-        <textarea class="form-control recipeForm" style="min-height:70px; max-height:70px" id="inputRecipeIngredients" placeholder="Ingredients (use a semi-colon to separate ingredients)"
-          name="recipeIngredients"></textarea>
-        <textarea class="form-control recipeForm" style="min-height:70px; max-height:70px" id="inputRecipePrepMethod" placeholder="Method of Preparation"
-          name="prepMethod"></textarea>
+      <div class="row">
+        <div class="col">
+          <input class="form-control recipeForm" id="inputRecipeName" type="text" placeholder="Recipe Title"
+            name="recipeName" />
+        </div>
+        <div class="col">
+          <input class="form-control recipeForm" id="inputRecipeImageURL" type="text" placeholder="Recipe Image URL"
+            name="recipeImageURL" />
+        </div>
       </div>
-      <button class="recipeForm btn btn-md u-btn-primary g-mr-10 g-mb-15"  id="btnSubmit" type="submit">Submit Recipe</button>
+      <div id="ingredPrep">
+        <textarea class="form-control recipeForm" style="min-height:70px; max-height:70px" id="inputRecipeIngredients"
+          placeholder="Ingredients (use a semi-colon to separate ingredients)" name="recipeIngredients"></textarea>
+        <textarea class="form-control recipeForm" style="min-height:70px; max-height:70px" id="inputRecipePrepMethod"
+          placeholder="Method of Preparation" name="prepMethod"></textarea>
+      </div>
+      <button class="recipeForm btn btn-md u-btn-primary g-mr-10 g-mb-15" id="btnSubmit" type="submit">Submit
+        Recipe</button>
     </div>
   </form>
-<div class="center">
-  <a href="/">Main Menu</a>
-</div>
+  <div class="center">
+    <a href="/">Main Menu</a>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

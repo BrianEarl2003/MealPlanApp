@@ -20,9 +20,10 @@ router.post('/addRecipe', function (req, res) {
 
   // Get our form values. These rely on the "name" attributes
   var recipeName = req.body.recipeName;
+  var recipeImageURL = req.body.recipeImageURL;
   var recipeIngredients = req.body.recipeIngredients;
   var recipePrepMethod = req.body.prepMethod;
-
+  
   //We'll now add the ingredients to an array;
   var ingredients = recipeIngredients.split(";");
 
@@ -33,7 +34,8 @@ router.post('/addRecipe', function (req, res) {
   collection.insert({
     "recipeName": recipeName,
     "ingredients": ingredients,
-    "prepMethod": recipePrepMethod
+    "prepMethod": recipePrepMethod,
+    "image": recipeImageURL
   }, function (err, doc) {
     if (err) {
       // If it failed, return error
