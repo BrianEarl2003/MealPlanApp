@@ -19,12 +19,13 @@
 
       <%
       var list = '';
-        list += '<div id="formAddRecipe"><div class="ingredPrep"><p class="title"><strong class="cursive">Recipe: </strong><span class="underline handwriting">' + recipe.recipeName + '</span></p><p class="text"><strong class="cursive">Ingredients: </strong><ul>';
+        list += '<div id="formAddRecipe"><div class="ingredPrep container"><div class="row"><div class="col"><p class="title"><strong class="cursive">Recipe: </strong><span class="underline handwriting">' + recipe.recipeName + '</span></p><p class="text"><strong class="cursive">Ingredients: </strong><ul>';
         for (j = 0; j < recipe.ingredients.length; j++) {
           list += '<li class="underline handwriting">' + recipe.ingredients[j] + '</li>';
         }
-        list += '</ul><img class="recipeImage" src="/' + recipe.image + '"></p><p class="text"><strong class="cursive">Preparation: </strong><span class="underline handwriting">' + recipe.prepMethod + '</span></p></div></div>';
+        list += '</ul></p></div><img class="recipeImage col" src="/' + recipe.image + '"></div><p class="text"><strong class="cursive">Preparation: </strong><span class="underline handwriting">' + recipe.prepMethod + '</span></p></div></div>';
       %>
+
         <%- list %>
 
         <div class="center">
