@@ -40,3 +40,8 @@
 .text {
     font-size: 18px;
 }
+
+.recipeImage {
+    width: 100%;
+    height: auto;
+}
