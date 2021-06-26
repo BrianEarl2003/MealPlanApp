@@ -181,10 +181,10 @@ router.get('/recipelist', function (req, res) {
 });
 
 /* GET viewRecipe page */
-router.get('/viewRecipe/:recipeID', function (req, res, next) {
+router.get('/:recipeID', function (req, res, next) {
   var db = req.db;
 
-  var recipeID = JSON.parse(req.params.recipeID);
+  var recipeID = req.params.recipeID;
   var collection = db.get('recipeList');
 
   collection.findOne({ '_id': recipeID }, function (e, docs) {
