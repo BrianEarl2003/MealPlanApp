@@ -23,7 +23,7 @@ router.post('/addRecipe', function (req, res) {
   var recipeImageURL = req.body.recipeImageURL;
   var recipeIngredients = req.body.recipeIngredients;
   var recipePrepMethod = req.body.prepMethod;
-  
+
   //We'll now add the ingredients to an array;
   var ingredients = recipeIngredients.split(";");
 
@@ -46,7 +46,60 @@ router.post('/addRecipe', function (req, res) {
       res.redirect("recipeList");
     }
   });
+});
 
+/* GET Pantry page */
+router.get('/pantry', function (req, res, next) {
+  var db = req.db;
+
+  var collection = db.get('pantry');
+
+  collection.find({ 'quantity': { $ne: 0 } }, function (e, docs) {
+
+    var pantry = [];
+
+    for (i = 0; i < docs.length; i++) {
+      pantry.push(docs[i].quantity + ' ' + docs[i].productName);
+    }
+
+    pantry.sort();
+    res.render('pantry', {
+      "recipes": pantry,
+      title: 'Pantry'
+    });
+  });
+});
+
+router.post('/pantry', function (req, res) {
+
+  // Set our internal DB variable
+  var db = req.db;
+
+  // Get our form values. These rely on the "name" attributes
+  var productName = req.body.productName;
+  var location = req.body.location;
+  var quantity = req.body.quantity;
+  var expDate = req.body.expDate;
+
+  // Set our collection
+  var collection = db.get('pantry');
+
+  // Submit to the DB
+  collection.insert({
+    "productName": productName,
+    "quantity": quantity,
+    "expDate": expDate,
+    "location": location
+  }, function (err, doc) {
+    if (err) {
+      // If it failed, return error
+      res.send("There was a problem adding the information to the database.");
+    }
+    else {
+      // And forward to success page
+      res.redirect("pantry");
+    }
+  });
 });
 
 /* GET mealCalendar page */
@@ -67,7 +120,7 @@ router.get('/ingredientList', function (req, res, next) {
 
   var collection = db.get('recipeList');
 
-  collection.find({'datePlanned': {$ne : 0} }, function (e, docs) {
+  collection.find({ 'datePlanned': { $ne: 0 } }, function (e, docs) {
 
     var ingredients = [];
 
@@ -87,13 +140,14 @@ router.get('/ingredientList', function (req, res, next) {
 });
 
 /* GET planMeals page  */
-router.get('/planMeals', function(req, res) {
+router.get('/planMeals', function (req, res) {
   var db = req.db;
   var collection = db.get('recipeList');
-  collection.find({},{},function(e,docs){
-    res.render('planMeals', { 
-    "recipelist" : docs,
-    title: 'Plan Your Meals' });
+  collection.find({}, {}, function (e, docs) {
+    res.render('planMeals', {
+      "recipelist": docs,
+      title: 'Plan Your Meals'
+    });
   });
 });
 
@@ -116,57 +170,57 @@ router.post('/planMeals', async function (req, res) {
   var recipeSaturday = req.body.saturday;
 
   collection.update(
-    {'_id' : {$ne : null} },
-    { $set: {'datePlanned' : 0}},
-    {'multi' : true},
-    function (err, doc) {}
+    { '_id': { $ne: null } },
+    { $set: { 'datePlanned': 0 } },
+    { 'multi': true },
+    function (err, doc) { }
   );
 
   await resolveAfter2Seconds();
 
   // Submit to the DB
   collection.update(
-    {'recipeName' : recipeSunday},
-    { $set: {'datePlanned': 1}}
-  , function (err, doc) {
+    { 'recipeName': recipeSunday },
+    { $set: { 'datePlanned': 1 } }
+    , function (err, doc) {
     });
 
   collection.update(
-    {'recipeName' : recipeMonday},
-    { $set: {'datePlanned': 2}}
-  , function (err, doc) {
-  });
+    { 'recipeName': recipeMonday },
+    { $set: { 'datePlanned': 2 } }
+    , function (err, doc) {
+    });
 
   collection.update(
-    {'recipeName' : recipeTuesday},
-    { $set: {'datePlanned': 3}}
-  , function (err, doc) {
-  });
+    { 'recipeName': recipeTuesday },
+    { $set: { 'datePlanned': 3 } }
+    , function (err, doc) {
+    });
 
   collection.update(
-    {'recipeName' : recipeWednesday},
-    { $set: {'datePlanned': 4}}
-  , function (err, doc) {
-  });
+    { 'recipeName': recipeWednesday },
+    { $set: { 'datePlanned': 4 } }
+    , function (err, doc) {
+    });
 
   collection.update(
-    {'recipeName' : recipeThursday},
-    { $set: {'datePlanned': 5}}
-  , function (err, doc) {
-  });
+    { 'recipeName': recipeThursday },
+    { $set: { 'datePlanned': 5 } }
+    , function (err, doc) {
+    });
 
   collection.update(
-    {'recipeName' : recipeFriday},
-    { $set: {'datePlanned': 6}}
-  , function (err, doc) {
-  });
+    { 'recipeName': recipeFriday },
+    { $set: { 'datePlanned': 6 } }
+    , function (err, doc) {
+    });
 
   collection.update(
-    {'recipeName' : recipeSaturday},
-    { $set: {'datePlanned': 7}}
-  , function (err, doc) {
+    { 'recipeName': recipeSaturday },
+    { $set: { 'datePlanned': 7 } }
+    , function (err, doc) {
       res.redirect("/mealCalendar");
-  });
+    });
 });
 
 /* GET recipelist page. */
