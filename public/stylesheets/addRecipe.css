@@ -19,7 +19,12 @@
     margin-bottom: 2%;
 }
 
-#ingredPrep {
+#ingredients {
+    background-color: beige;
+    padding: 2%;
+}
+
+#prepMethod {
     background-color: beige;
     padding: 2%;
 }

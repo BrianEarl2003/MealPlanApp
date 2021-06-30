@@ -21,7 +21,7 @@ router.post('/addRecipe', function (req, res) {
   // Get our form values. These rely on the "name" attributes
   var recipeName = req.body.recipeName;
   var recipeImageURL = req.body.recipeImageURL;
-  var recipeIngredients = req.body.recipeIngredients;
+  var recipeIngredients = req.body.ingredients;
   var recipePrepMethod = req.body.prepMethod;
 
   //We'll now add the ingredients to an array;

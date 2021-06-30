@@ -16,7 +16,7 @@
   <!--link rel="stylesheet" type="text/css" href="addRecipe.css"-->
 </head>
 
-<body>
+<body onload="addFields('firstChoice')">
   <h1 class="center">Add a Recipe</h1>
 
   <form id="formAddRecipe" name="addRecipe" method="post" action="/addRecipe">
@@ -31,10 +31,13 @@
             name="recipeImageURL" />
         </div>
       </div>
-      <div id="ingredPrep">
-        <textarea class="form-control recipeForm" style="min-height:70px; max-height:70px" id="inputRecipeIngredients"
-          placeholder="Ingredients (use a semi-colon to separate ingredients)" name="recipeIngredients"></textarea>
-        <textarea class="form-control recipeForm" style="min-height:70px; max-height:70px" id="inputRecipePrepMethod"
+      <div id="ingredients">
+          <div id="firstChoice"></div>
+          <div id="newField"></div>
+          <input type="button" onclick="addFields('newField')" value="Add Ingredient">
+      </div>
+      <div id="prepMethod"></div>
+        <textarea class="form-control recipeForm" style="min-height:70px; max-height:70px;" id="inputRecipePrepMethod"
           placeholder="Method of Preparation" name="prepMethod"></textarea>
       </div>
       <button class="recipeForm btn btn-md u-btn-primary g-mr-10 g-mb-15" id="btnSubmit" type="submit">Submit
@@ -54,6 +57,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+    <script src="javascripts/addIngredient.js"></script>
 </body>
 
 </html>
