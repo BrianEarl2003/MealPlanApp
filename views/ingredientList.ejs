@@ -19,11 +19,25 @@
         <ul>
         <%
           var list = '';
-          for (i = 0; i < recipes.length; i++) {
-              list += '<li>' + recipes[i] + '</li>';
+          for (i = 0; i < ingredients.length; i++) {
+              list += '<li>' + ingredients[i] + '</li>';
           }
         %>
         <%- list%>
+
+        <!--<%
+          var list = '';
+          for (i = 0; i < ingredients.length; i++) {
+            list += '<li>';
+              for (j = 0; j < ingredients[i].length; j++) {
+                list += ingredients[i][j];
+                if (j != (ingredients[i].length - 1)) {
+                  list += " ";
+                }
+              }
+            list += '</li>';
+          }
+        %>-->
       </ul>
       </div>
     <div class="center">

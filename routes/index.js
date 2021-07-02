@@ -129,16 +129,32 @@ router.get('/ingredientList', function (req, res, next) {
 
     var ingredients = [];
 
+    //Putting all ingredients into a single array
     for (i = 0; i < docs.length; i++) {
       for (j = 0; j < docs[i].ingredients.length; j++) {
         ingredients.push(docs[i].ingredients[j]/*.split(" ")*/);
       }
     }
-
+    //Sorting the list of ingredients alphabetically
     ingredients.sort();
 
+    //Checking for similar items
+    for (i = 0; i < ingredients.length; i++) {
+      for (j = 0; j < ingredients.length; j++) {
+        if (i != j) {
+          if (ingredients[i] == ingredients[j]) {
+            console.log(ingredients[i] + " is equal to " + ingredients[j]);
+            ingredients[i][0]++;
+            console.log(ingredients[i][0]);
+          }
+        } 
+      }
+    }
+    
+
+    //Rendering the list of ingredients
     res.render('ingredientList', {
-      "recipes": ingredients,
+      "ingredients": ingredients,
       title: 'View Ingredients'
     });
   });
