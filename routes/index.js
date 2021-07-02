@@ -132,7 +132,7 @@ router.get('/ingredientList', function (req, res, next) {
     //Putting all ingredients into a single array
     for (i = 0; i < docs.length; i++) {
       for (j = 0; j < docs[i].ingredients.length; j++) {
-        ingredients.push(docs[i].ingredients[j]/*.split(" ")*/);
+        ingredients.push(docs[i].ingredients[j]);
       }
     }
     //Sorting the list of ingredients alphabetically
@@ -144,8 +144,10 @@ router.get('/ingredientList', function (req, res, next) {
         if (i != j) {
           if (ingredients[i] == ingredients[j]) {
             console.log(ingredients[i] + " is equal to " + ingredients[j]);
-            ingredients[i][0]++;
-            console.log(ingredients[i][0]);
+            number = parseInt(ingredients[i][0], 10) + parseInt(ingredients[j][0], 10);
+            ingredients[i] = number + ingredients[i].slice(1);
+            console.log(ingredients[i]);
+            ingredients.splice(j, 1);
           }
         } 
       }
