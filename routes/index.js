@@ -21,11 +21,16 @@ router.post('/addRecipe', function (req, res) {
   // Get our form values. These rely on the "name" attributes
   var recipeName = req.body.recipeName;
   var recipeImageURL = req.body.recipeImageURL;
-  var recipeIngredients = req.body.ingredients;
+  var recipeIngQuant = req.body.ingQuant;
+  var recipeIngUnit = req.body.ingUnit;
+  var recipeIngName = req.body.ingName;
   var recipePrepMethod = req.body.prepMethod;
 
+  var ingredients = [];
   //We'll now add the ingredients to an array;
-  var ingredients = recipeIngredients.split(";");
+  for (i = 0; i < recipeIngQuant.length; i++) {
+    ingredients[i] = recipeIngQuant[i] + " " + recipeIngUnit[i] + " " + recipeIngName[i];
+  }
 
   // Set our collection
   var collection = db.get('recipeList');
