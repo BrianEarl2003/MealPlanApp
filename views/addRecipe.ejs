@@ -31,14 +31,17 @@
             name="recipeImageURL" />
         </div>
       </div>
-      <div id="ingredients">
+      <div id="ingredPrep">
+        <div id="ingredients">
           <div id="firstChoice"></div>
           <div id="newField"></div>
-          <input type="button" onclick="addFields('newField')" value="Add Ingredient">
-      </div>
-      <div id="prepMethod"></div>
-        <textarea class="form-control recipeForm" style="min-height:70px; max-height:70px;" id="inputRecipePrepMethod"
-          placeholder="Method of Preparation" name="prepMethod"></textarea>
+          <input class="recipeForm btn btn-md u-btn-primary g-mr-10 g-mb-15" type="button"
+            onclick="addFields('newField')" value="Add Ingredient" id="btnAddIng">
+        </div>
+        <div id="prepMethod">
+          <textarea class="form-control recipeForm" style="min-height:70px; max-height:70px;" id="inputRecipePrepMethod"
+            placeholder="Method of Preparation" name="prepMethod"></textarea>
+        </div>
       </div>
       <button class="recipeForm btn btn-md u-btn-primary g-mr-10 g-mb-15" id="btnSubmit" type="submit">Submit
         Recipe</button>
@@ -57,7 +60,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-    <script src="javascripts/addIngredient.js"></script>
+  <script src="javascripts/addIngredient.js"></script>
 </body>
 
 </html>

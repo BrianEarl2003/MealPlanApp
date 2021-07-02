@@ -5,7 +5,6 @@
     padding-left: 2%;
     padding-right: 2%;
     padding-top: 2%;
-    /*padding-bottom: 5%;*/
 }
 
 .center {
@@ -13,26 +12,21 @@
 }
 
 .recipeForm {
-    /*margin-left: 16.7%;
-    margin-right: 16.7%;*/
     margin-top: 2%;
     margin-bottom: 2%;
 }
 
-#ingredients {
+#ingredPrep {
     background-color: beige;
     padding: 2%;
 }
-
-#prepMethod {
-    background-color: beige;
-    padding: 2%;
-}
-
-/*#inputRecipeName {
-    width: 60%;
-}*/
 
 #btnSubmit {
     background-color: beige;
+    color: gray;
+}
+
+#btnAddIng {
+    background-color: gray;
+    color: beige;
 }
