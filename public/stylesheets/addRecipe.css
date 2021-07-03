@@ -4,7 +4,7 @@
     margin-right: 16.7%;
     padding-left: 2%;
     padding-right: 2%;
-    padding-top: 2%;
+    padding-top: 1%;
 }
 
 .center {
@@ -28,5 +28,9 @@
 
 #btnAddIng {
     background-color: gray;
+    color: beige;
+}
+
+.beige {
     color: beige;
 }

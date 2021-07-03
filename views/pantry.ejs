@@ -23,11 +23,16 @@
     <div class="form-group">
       <div class="row">
         <div class="col">
-          <input class="form-control recipeForm" id="inputProductName" type="text" placeholder="Product Name"
-            name="productName" />
+          <label class="beige center" for="expDate">Expiration Date:</label>
         </div>
         <div class="col">
-          <label for="location">Product Location:</label>
+          <input class="form-control recipeForm" id="expDate" type="date" name="expDate" />
+        </div>
+
+        <div class="col">
+          <label class="beige center" for="location">Product Location:</label>
+        </div>
+        <div class="col">
           <select class="form-control recipeForm" id="location" type="text" name="location">
             <option value="pantry">Pantry</option>
             <option value="refrigerator">Refrigerator</option>
@@ -37,13 +42,29 @@
       </div>
       <div id="ingredPrep">
         <div class="row">
-          <div class="col">
-            <input class="form-control recipeForm" id="inputQuantity" type="number" placeholder="Quantity"
-              name="quantity" />
+          <div class="col" id="quantity">
+            <% var numbers = ["Select Quantity", "⅛", "⅜", "⅝", "⅞", "¼", "¾", "⅓", "⅔", "½", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+            var selectHTML1 = "";
+            selectHTML1 = '<select class="form-control recipeForm" name="ingQuant">';
+            for (i = 0; i < numbers.length; i = i + 1) {
+                selectHTML1 += "<option value='" + numbers[i] + "'>" + numbers[i] + "</option>";
+            }
+            selectHTML1 += "</select>";
+            %><%- selectHTML1%>
+          </div>
+          <div class="col" id="unit">
+            <% var units = ["Select the Unit", "Tbsp", "tsp", "Oz", "Fl. Oz", "Cup", "qt", "pt", "gal", "lb", "Can", "unit"];
+            var selectHTML2 = "";
+            selectHTML2 += '<select class="form-control recipeForm" name="ingUnit">';
+            for (i = 0; i < units.length; i = i + 1) {
+                selectHTML2 += "<option value='" + units[i] + "'>" + units[i] + "</option>";
+            }
+            selectHTML2 += "</select>";
+            %><%- selectHTML2%>
           </div>
           <div class="col">
-            <label for="expDate">Expiration Date:</label>
-            <input class="form-control recipeForm" id="expDate" type="date" name="expDate" />
+            <input class="form-control recipeForm" id="inputProductName" type="text" placeholder="Product Name"
+              name="productName" />
           </div>
         </div>
       </div>
@@ -70,6 +91,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+  <script> src="javascripts/pantry.js"</script>
 </body>
 
 </html>
