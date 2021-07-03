@@ -45,7 +45,7 @@
           <div class="col" id="quantity">
             <% var numbers = ["Select Quantity", "⅛", "⅜", "⅝", "⅞", "¼", "¾", "⅓", "⅔", "½", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
             var selectHTML1 = "";
-            selectHTML1 = '<select class="form-control recipeForm" name="ingQuant">';
+            selectHTML1 = '<select class="form-control recipeForm" name="quantity">';
             for (i = 0; i < numbers.length; i = i + 1) {
                 selectHTML1 += "<option value='" + numbers[i] + "'>" + numbers[i] + "</option>";
             }
@@ -55,7 +55,7 @@
           <div class="col" id="unit">
             <% var units = ["Select the Unit", "Tbsp", "tsp", "Oz", "Fl. Oz", "Cup", "qt", "pt", "gal", "lb", "Can", "unit"];
             var selectHTML2 = "";
-            selectHTML2 += '<select class="form-control recipeForm" name="ingUnit">';
+            selectHTML2 += '<select class="form-control recipeForm" name="unit">';
             for (i = 0; i < units.length; i = i + 1) {
                 selectHTML2 += "<option value='" + units[i] + "'>" + units[i] + "</option>";
             }

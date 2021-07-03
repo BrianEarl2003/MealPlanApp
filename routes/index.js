@@ -64,7 +64,7 @@ router.get('/pantry', function (req, res, next) {
     var pantry = [];
 
     for (i = 0; i < docs.length; i++) {
-      pantry.push(docs[i].quantity + ' ' + docs[i].productName);
+      pantry.push(docs[i].quantity + ' ' + docs[i].unit + ' ' + docs[i].productName);
     }
 
     pantry.sort();
@@ -85,6 +85,7 @@ router.post('/pantry', function (req, res) {
   var location = req.body.location;
   var quantity = req.body.quantity;
   var expDate = req.body.expDate;
+  var unit = req.body.unit;
 
   // Set our collection
   var collection = db.get('pantry');
@@ -94,7 +95,8 @@ router.post('/pantry', function (req, res) {
     "productName": productName,
     "quantity": quantity,
     "expDate": expDate,
-    "location": location
+    "location": location,
+    "unit": unit
   }, function (err, doc) {
     if (err) {
       // If it failed, return error
