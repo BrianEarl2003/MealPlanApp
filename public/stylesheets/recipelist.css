@@ -41,6 +41,6 @@
 
 .recipeImage {
     object-fit: cover;
-    width: 100%;
+    width: 20%;
     height: auto;
 }

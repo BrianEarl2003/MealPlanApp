@@ -139,11 +139,12 @@ router.get('/ingredientList', function (req, res, next) {
     }
     //Sorting the list of ingredients alphabetically
     ingredients.sort();
+    console.log(ingredients);
 
     //Checking for similar items
     for (i = 0; i < ingredients.length; i++) {
       for (j = 0; j < ingredients.length; j++) {
-        if (i != j) {
+        /*if (i != j) {
           if (ingredients[i] == ingredients[j]) {
             console.log(ingredients[i] + " is equal to " + ingredients[j]);
             number = parseInt(ingredients[i][0], 10) + parseInt(ingredients[j][0], 10);
@@ -151,7 +152,7 @@ router.get('/ingredientList', function (req, res, next) {
             console.log(ingredients[i]);
             ingredients.splice(j, 1);
           }
-        } 
+        } */
       }
     }
     
@@ -280,6 +281,15 @@ function resolveAfter2Seconds() {
       resolve('resolved');
     }, 500);
   });
+}
+
+function splitIngredients(str, sep, n) {
+  var out = [];
+
+  while(n--) out.push(str.slice(sep.lastIndex, sep.exec(str).index));
+
+  out.push(str.slice(sep.lastIndex));
+  return out;
 }
 
 module.exports = router;
