@@ -159,24 +159,47 @@ router.get('/ingredientList', function (req, res, next) {
             //Checking if they are in the same units
             if (JSON.stringify(ingredients[i][1]) == JSON.stringify(ingredients[j][1])){
               console.log(ingredients[i] + " is equal to " + ingredients[j]);
-              number = parseInt(ingredients[i][0], 10) + parseInt(ingredients[j][0], 10);
+              number = parseFloat(ingredients[i][0], 10) + parseFloat(ingredients[j][0], 10);
               ingredients[i][0] = number;
               ingredients.splice(j, 1);
             }
+            //Convert Teaspoons to Tablespoons
             if (((ingredients[i][1] == 'Tbsp') && (ingredients[j][1] == 'tsp'))) {
               ingredients[j][0] = ingredients[j][0]/ 3;
               ingredients[j][1] = 'Tbsp';
             }
-            if (((ingredients[i][1] == 'tsp') && (ingredients[j][1] == 'Tbsp'))) {
-              ingredients[j][0] = ingredients[j][0] * 3;
-              ingredients[j][1] = 'tsp';
+            //Convert Ounces to Pounds
+            if (((ingredients[i][1] == 'lb') && (ingredients[j][1] == 'Oz'))) {
+              ingredients[j][0] = ingredients[j][0] / 16;
+              ingredients[j][1] = 'lb';
+            }
+            //Convert Fluid Ounces to Cups
+            if (((ingredients[i][1] == 'Fl. Oz') && (ingredients[i][1] > 8))) {
+              ingredients[j][0] = ingredients[j][0] / 8;
+              ingredients[j][1] = 'Cup';
+            }
+            //Convert Cups to Quarts
+            if (((ingredients[i][1] == 'qt') && (ingredients[j][1] == 'Cup'))) {
+              ingredients[j][0] = ingredients[j][0] / 4;
+              ingredients[j][1] = 'qt';
+            }
+            //Convert Cups to Pints
+            if (((ingredients[i][1] == 'pt') && (ingredients[j][1] == 'Cup'))) {
+              ingredients[j][0] = ingredients[j][0] / 2;
+              ingredients[j][1] = 'pt';
+            }
+            //Convert Cups to Gallons
+            if (((ingredients[i][1] == 'gal') && (ingredients[j][1] == 'Cup'))) {
+              ingredients[j][0] = ingredients[j][0] / 16;
+              ingredients[j][1] = 'gal';
             }
           }
-        } 
+        }
+        console.log("Checked ingredient " + i + " against all others."); 
       }
     }
     count++;
-  } while (count < 10);
+  } while (count < 100);
     
 
     //Rendering the list of ingredients
