@@ -63,12 +63,12 @@ router.get('/pantry', function (req, res, next) {
 
   var collection = db.get('pantry');
 
-  collection.find({ 'quantity': { $ne: 0 } }, function (e, docs) {
+  collection.find({ 'quantity': { $ne: 0 } }, { 'number': { $ne: 0 } }, function (e, docs) {
 
     var pantry = [];
 
     for (i = 0; i < docs.length; i++) {
-      pantry.push(docs[i].quantity + ' ' + docs[i].unit + ' ' + docs[i].productName);
+      pantry.push(docs[i].number + docs[i].quantity + ' ' + docs[i].unit + ' ' + docs[i].productName);
     }
 
     pantry.sort();
@@ -90,6 +90,7 @@ router.post('/pantry', function (req, res) {
   var quantity = req.body.quantity;
   var expDate = req.body.expDate;
   var unit = req.body.unit;
+  var number = req.body.number;
 
   // Set our collection
   var collection = db.get('pantry');
@@ -100,7 +101,8 @@ router.post('/pantry', function (req, res) {
     "quantity": quantity,
     "expDate": expDate,
     "location": location,
-    "unit": unit
+    "unit": unit,
+    "number": number
   }, function (err, doc) {
     if (err) {
       // If it failed, return error

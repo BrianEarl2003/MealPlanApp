@@ -42,6 +42,12 @@
       </div>
       <div id="ingredPrep">
         <div class="row">
+          <div class="col">
+            <label class="gray center" for="number">Numeric Quantity:</label>
+          </div>
+          <div class="col">
+            <input type="number" name="number" id="number" min="0" value="0" step=".1" class="input form-control recipeForm">
+          </div>
           <div class="col" id="quantity">
             <% var numbers = ["Select Fractional Quantity", "⅛", "⅜", "⅝", "⅞", "¼", "¾", "⅓", "⅔", "½"];
             var selectHTML1 = "";
