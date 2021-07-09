@@ -26,6 +26,7 @@ router.post('/addRecipe', function (req, res) {
   var recipeIngUnit = req.body.ingUnit;
   var recipeIngName = req.body.ingName;
   var recipePrepMethod = req.body.prepMethod;
+  var recipeIngWholeNumber =  req.body.IngWholeNumber;
 
   var ingredients = [];
   //We'll now add the ingredients to an array;
