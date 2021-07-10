@@ -155,16 +155,9 @@ router.get('/ingredientList', function (req, res, next) {
     //Putting all ingredients into a single array
     for (i = 0; i < docs.length; i++) {
       for (j = 0; j < docs[i].ingredients.length; j++) {
-        //var ing = JSON.stringify(docs[i].ingredients[j]);
-        //ing = ing.replace('"', '');
-        //ing = ing.replace('"', '');
-        //ingredient = splitIngredients(ing, " ", 2);
-        //ingredients.push(ingredient);
         ingredients.push(docs[i].ingredients[j]);
       }
     }
-    //Sorting the list of ingredients alphabetically
-    //ingredients.sort();
 
     //Checking for similar items
     count = 0;
@@ -217,7 +210,7 @@ router.get('/ingredientList', function (req, res, next) {
       }
     }
     count++;
-  } while (count < 100);
+  } while (count < 10);
     
 
     //Rendering the list of ingredients
