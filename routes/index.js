@@ -155,15 +155,16 @@ router.get('/ingredientList', function (req, res, next) {
     //Putting all ingredients into a single array
     for (i = 0; i < docs.length; i++) {
       for (j = 0; j < docs[i].ingredients.length; j++) {
-        var ing = JSON.stringify(docs[i].ingredients[j]);
-        ing = ing.replace('"', '');
-        ing = ing.replace('"', '');
-        ingredient = splitIngredients(ing, " ", 2);
-        ingredients.push(ingredient);
+        //var ing = JSON.stringify(docs[i].ingredients[j]);
+        //ing = ing.replace('"', '');
+        //ing = ing.replace('"', '');
+        //ingredient = splitIngredients(ing, " ", 2);
+        //ingredients.push(ingredient);
+        ingredients.push(docs[i].ingredients[j]);
       }
     }
     //Sorting the list of ingredients alphabetically
-    ingredients.sort();
+    //ingredients.sort();
 
     //Checking for similar items
     count = 0;
@@ -181,38 +182,38 @@ router.get('/ingredientList', function (req, res, next) {
               ingredients.splice(j, 1);
             }
             //Convert Teaspoons to Tablespoons
-            if (((ingredients[i][1] == 'Tbsp') && (ingredients[j][1] == 'tsp'))) {
-              ingredients[j][0] = ingredients[j][0]/ 3;
-              ingredients[j][1] = 'Tbsp';
+            if (((ingredients[i][1] == 'tsp') && (ingredients[i][0] >= 3))) {
+              console.log(ingredients[i][1]);
+              ingredients[i][0] = ingredients[i][0]/ 3;
+              ingredients[i][1] = 'Tbsp';
             }
             //Convert Ounces to Pounds
-            if (((ingredients[i][1] == 'lb') && (ingredients[j][1] == 'Oz'))) {
-              ingredients[j][0] = ingredients[j][0] / 16;
-              ingredients[j][1] = 'lb';
+            if (((ingredients[i][1] == 'oz') && (ingredients[i][0] >= 16))) {
+              ingredients[i][0] = ingredients[i][0] / 16;
+              ingredients[i][1] = 'lb';
             }
             //Convert Fluid Ounces to Cups
-            if (((ingredients[i][1] == 'Fl. Oz') && (ingredients[i][1] > 8))) {
-              ingredients[j][0] = ingredients[j][0] / 8;
-              ingredients[j][1] = 'Cup';
-            }
-            //Convert Cups to Quarts
-            if (((ingredients[i][1] == 'qt') && (ingredients[j][1] == 'Cup'))) {
-              ingredients[j][0] = ingredients[j][0] / 4;
-              ingredients[j][1] = 'qt';
-            }
-            //Convert Cups to Pints
-            if (((ingredients[i][1] == 'pt') && (ingredients[j][1] == 'Cup'))) {
-              ingredients[j][0] = ingredients[j][0] / 2;
-              ingredients[j][1] = 'pt';
+            if (((ingredients[i][1] == 'fl oz') && (ingredients[i][0] >= 8))) {
+              ingredients[i][0] = ingredients[i][0] / 8;
+              ingredients[i][1] = 'cup';
             }
             //Convert Cups to Gallons
-            if (((ingredients[i][1] == 'gal') && (ingredients[j][1] == 'Cup'))) {
-              ingredients[j][0] = ingredients[j][0] / 16;
-              ingredients[j][1] = 'gal';
+            if (((ingredients[i][1] == 'cup') && (ingredients[i][0] >= 16))) {
+              ingredients[i][0] = ingredients[i][0] / 16;
+              ingredients[i][1] = 'gal';
+            }
+            //Convert Cups to Quarts
+            if (((ingredients[i][1] == 'cup') && (ingredients[i][0] >= 4))) {
+              ingredients[i][0] = ingredients[i][0] / 4;
+              ingredients[i][1] = 'qt';
+            }
+            //Convert Cups to Pints
+            if (((ingredients[i][1] == 'cup') && (ingredients[i][0] >= 2))) {
+              ingredients[i][0] = ingredients[i][0] / 2;
+              ingredients[i][1] = 'pt';
             }
           }
         }
-        console.log("Checked ingredient " + i + " against all others."); 
       }
     }
     count++;
