@@ -26,15 +26,29 @@ router.post('/addRecipe', function (req, res) {
   var recipeIngUnit = req.body.ingUnit;
   var recipeIngName = req.body.ingName;
   var recipePrepMethod = req.body.prepMethod;
-  var recipeIngWholeNumber =  req.body.IngWholeNumber;
+  var recipeIngWholeNumber =  req.body.ingWholeNumber;
 
   var ingredients = [];
   //We'll now add the ingredients to an array;
   for (i = 0; i < recipeIngQuant.length; i++) {
-    if (recipeIngUnit[i] == 'unit') {
-      recipeIngUnit[i] = '';
+    if (recipeIngUnit[i] === "unit" || recipeIngUnit[i] === "Select the Unit") {
+      recipeIngUnit[i] = "";
     }
-    ingredients[i] = recipeIngQuant[i] + " " + recipeIngUnit[i] + " " + recipeIngName[i];
+    if (recipeIngWholeNumber[i] === "0") {
+      recipeIngWholeNumber[i] = "";
+    }
+    if (recipeIngQuant[i] === "Select Fractional Quantity") {
+      recipeIngQuant[i] = "";
+    }
+    if (recipeIngQuant[i] = "") {
+      recipeIngQuant[i] = recipeIngWholeNumber[i];
+    } else {
+      recipeIngQuant[i] = recipeIngWholeNumber[i] + " " + recipeIngQuant[i];
+    }
+    ingredients[i] = []
+    ingredients[i][0] = recipeIngQuant[i];
+    ingredients[i][1] = recipeIngUnit[i];
+    ingredients[i][2] = recipeIngName[i];
   }
 
   // Set our collection
