@@ -89,16 +89,19 @@ router.get('/pantry', function (req, res, next) {
   var collection = db.get('pantry');
 
   collection.find({ 'quantity': { $ne: 0 } }, { 'number': { $ne: 0 } }, function (e, docs) {
-
+    var location = [];
     var pantry = [];
 
     for (i = 0; i < docs.length; i++) {
       pantry.push(docs[i].number + docs[i].quantity + ' ' + docs[i].unit + ' ' + docs[i].productName);
+      location.push(docs[i].location);
+      console.log(pantry[i] + ': ' + location[i]);
     }
 
     pantry.sort();
     res.render('pantry', {
       "recipes": pantry,
+      "location": location,
       title: 'Pantry'
     });
   });

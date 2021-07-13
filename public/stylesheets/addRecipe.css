@@ -38,3 +38,36 @@
 .gray {
     color: gray;
 }
+
+#bgImage {
+    /*background-image: url("https://i.insider.com/5e0a54e3855cc27bf1384746?width=1000&format=jpeg&auto=webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: .5;*/
+    font-weight: bolder;
+}
+
+.centered1 {
+    position: absolute;
+  }
+
+  .centered2 {
+    position: absolute;
+    left: 33.3%;
+  }
+
+  .centered3 {
+    position: absolute;
+    left: 66.7%;
+  }
+  
+  .relative1 {
+    position: relative;
+  }
+  
+  .image1 {
+    width: 100%;
+    height: auto;
+    opacity: .5;
+  }

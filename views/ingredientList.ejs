@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="stylesheets/mealPlan.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/addRecipe.css">
 </head>
 
 <body>
@@ -52,18 +53,20 @@
     </div>
   </div>
 
-  <div class="row">
-    <ul class="col"> 
+  <div class="row relative1" id="bgImage">
+    <img class="image1" src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Shopping_cart_with_food_clip_art_2.svg">
+
+    <ul style="list-style-type:none;" class="col centered1"> 
       <% var list='' ; for (i=0; i < ingredients.length; i++) { if(i%3 == 0) list +='<li>' + ingredients[i][0] + ' ' +
         ingredients[i][1] + ' ' + ingredients[i][2] + '</li>' ; } %>
         <%- list%>
     </ul>
-    <ul class="col"> 
+    <ul style="list-style-type:none;" class="col centered2"> 
       <% var list1='' ; for (i=0; i < ingredients.length; i++) { if(i%3 == 1) list1 +='<li>' + ingredients[i][0] + ' ' +
         ingredients[i][1] + ' ' + ingredients[i][2] + '</li>' ; } %>
         <%- list1%>
     </ul>
-    <ul class="col"> 
+    <ul style="list-style-type:none;" class="col centered3"> 
       <% var list2='' ; for (i=0; i < ingredients.length; i++) { if(i%3 == 2) list2 +='<li>' + ingredients[i][0] + ' ' +
         ingredients[i][1] + ' ' + ingredients[i][2] + '</li>' ; } %>
         <%- list2%>
