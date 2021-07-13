@@ -113,10 +113,18 @@
         Product</button>
     </div>
   </form>
-  <div>
-    <ul>
-      <% var list='' ; for (i=0; i < recipes.length; i++) { list +='<li>' + recipes[i] + '</li>' ; } %>
+  <div class="row">
+    <ul class="col">
+      <% var list='' ; for (i = 0; i < recipes.length / 3; i++) { list +='<li>' + recipes[i] + '</li>' ; } %>
         <%- list%>
+    </ul>
+    <ul class="col"> 
+      <% var list1='' ; for (i = recipes.length / 3; i < 2 * recipes.length / 3; i++) { list1 +='<li>' + recipes[i] + '</li>' ; } %>
+        <%- list1%>
+    </ul>
+    <ul class="col"> 
+      <% var list2='' ; for (i = 2 * recipes.length / 3; i < recipes.length; i++) { list2 +='<li>' + recipes[i] + '</li>' ; } %>
+        <%- list2%>
     </ul>
   </div>
   <div class="center">
