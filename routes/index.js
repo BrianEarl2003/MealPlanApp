@@ -326,7 +326,7 @@ router.post('/planMeals', async function (req, res) {
     { 'recipeName': recipeSaturday },
     { $set: { 'datePlanned': 7 } }
     , function (err, doc) {
-      res.redirect("/mealCalendar");
+      res.redirect("/");
     });
 });
 

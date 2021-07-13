@@ -114,16 +114,16 @@
     </div>
   </form>
   <div class="row">
-    <ul class="col">
-      <% var list='' ; for (i = 0; i < recipes.length / 3; i++) { list +='<li>' + recipes[i] + '</li>' ; } %>
+    <ul style="margin-left: 4%;"class="col">
+      <% var list='' ; for (i = 0; i < recipes.length; i++) { if(i%3 == 0) list +='<li>' + recipes[i] + '</li>' ; } %>
         <%- list%>
     </ul>
     <ul class="col"> 
-      <% var list1='' ; for (i = recipes.length / 3; i < 2 * recipes.length / 3; i++) { list1 +='<li>' + recipes[i] + '</li>' ; } %>
+      <% var list1='' ; for (i = 0; i < recipes.length; i++) { if(i%3 == 1) list1 +='<li>' + recipes[i] + '</li>' ; } %>
         <%- list1%>
     </ul>
     <ul class="col"> 
-      <% var list2='' ; for (i = 2 * recipes.length / 3; i < recipes.length; i++) { list2 +='<li>' + recipes[i] + '</li>' ; } %>
+      <% var list2='' ; for (i = 0; i < recipes.length; i++) { if(i%3 == 2) list2 +='<li>' + recipes[i] + '</li>' ; } %>
         <%- list2%>
     </ul>
   </div>
