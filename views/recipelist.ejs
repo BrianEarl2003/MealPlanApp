@@ -12,11 +12,46 @@
     <!--CSS modifications-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/stylesheets/recipelist.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mealPlan.css">
   </head>
   
   <body>
-      <h1 class="center">List of Recipes</h1>
+      <h1 class="center" id="top">List of Recipes</h1>
       
+      <div class="grid container topnav">
+        <div class="row">
+    
+          <div class="relative col">
+            <a href="\"><img id="calendar" class="image" src="images\calendar.jpg">
+              <div class="centered">Calendar</div>
+            </a>
+          </div>
+    
+          <div class="relative col">
+            <a href="addRecipe"><img id="addRecipe" class="image" src="images/addRecipe.jpg">
+              <div class="centered">Add a Recipe</div>
+            </a>
+          </div>
+    
+          <div class="relative col">
+            <a href="pantry"><img id="pantry" class="image" src="images/pantry.jpg">
+              <div class="centered">Pantry</div>
+            </a>
+          </div>
+    
+          <div class="relative col">
+            <a class="active" href="recipeList"><img id="recipeList" class="image" src="images/recipeList.jpg">
+              <div class="centered">List of Recipes</div>
+            </a>
+          </div>
+          <div class="relative col">
+            <a href="ingredientList"><img id="ingredientList" class="image" src="images/ingredientList.jpg">
+              <div class="centered">Shopping List</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <%
           var list = '';
           for (i = 0; i < recipelist.length; i++) {
@@ -33,7 +68,7 @@
         <%- list %>
 
         <div class="center">
-          <a href="/">Main Menu</a>
+          <a href="#top">Top</a>
         </div>
       
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

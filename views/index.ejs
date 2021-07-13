@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meal Planning App</title>
+  <title>Meal Planning Calendar</title>
   <!--google fonts-->
   <link
     href="https://fonts.googleapis.com/css?family=Bungee+Inline|Montserrat+Subrayada|Press+Start+2P|Rye|VT323&display=swap"
@@ -13,47 +13,112 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="stylesheets/mealPlan.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/mealCalendar.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-  <h1 class="center container">Meal Planning App</h1>
+  <h1 class="center container">Meal Planning Calendar</h1>
   <div class="grid container topnav">
-  <!--div class="topnav"!-->
     <div class="row">
 
       <div class="relative col">
-        <a class="active" href="mealCalendar"><img id="calendar" class="image"
-            src="images\calendar.jpg">
-          <div class="centered">Calendar</div></a>
-      </div>
-      
-      <div class="relative col">
-        <a href="addRecipe"><img id="addRecipe" class="image"
-            src="images/addRecipe.jpg">
-            <div class="centered">Add a Recipe</div></a>
+        <a class="active" href="\"><img id="calendar" class="image" src="images\calendar.jpg">
+          <div class="centered">Calendar</div>
+        </a>
       </div>
 
       <div class="relative col">
-        <a href="pantry"><img id="pantry" class="image"
-            src="images/pantry.jpg">
-            <div class="centered">Pantry</div></a>
+        <a href="addRecipe"><img id="addRecipe" class="image" src="images/addRecipe.jpg">
+          <div class="centered">Add a Recipe</div>
+        </a>
       </div>
 
       <div class="relative col">
-        <a href="recipeList"><img id="recipeList" class="image"
-            src="images/recipeList.jpg">
-            <div class="centered">List of Recipes</div></a>
-      </div>
-      <div class="relative col">
-        <a href="ingredientList"><img id="ingredientList" class="image"
-            src="images/ingredientList.jpg">
-            <div class="centered">Shopping List</div></a>
+        <a href="pantry"><img id="pantry" class="image" src="images/pantry.jpg">
+          <div class="centered">Pantry</div>
+        </a>
       </div>
 
+      <div class="relative col">
+        <a href="recipeList"><img id="recipeList" class="image" src="images/recipeList.jpg">
+          <div class="centered">List of Recipes</div>
+        </a>
+      </div>
+      <div class="relative col">
+        <a href="ingredientList"><img id="ingredientList" class="image" src="images/ingredientList.jpg">
+          <div class="centered">Shopping List</div>
+        </a>
+      </div>
     </div>
-
   </div>
+
+  <div class="row">
+    <div class="col fullborder" id="1">
+      <h2 class="botborder center">Sunday</h2>
+      <p>
+        <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==1) {
+          recipe='<div><a href="/' + recipelist[i]._id + '"><img class="recipeImage" src="' + recipelist[i].image + '">'
+          + recipelist[i].recipeName + '</a></div>' ; } } %>
+          <%- recipe %>
+      </p>
+    </div>
+    <div class="col fullborder" id="2">
+      <h2 class="botborder center">Monday</h2>
+      <p>
+        <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==2) {
+          recipe='<div><a href="/' + recipelist[i]._id + '"><img class="recipeImage" src="' + recipelist[i].image + '">'
+          + recipelist[i].recipeName + '</a></div>' ; } } %>
+          <%- recipe %>
+      </p>
+    </div>
+    <div class="col fullborder" id="3">
+      <h2 class="botborder center">Tuesday</h2>
+      <p>
+        <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==3) {
+          recipe='<div><a href="/' + recipelist[i]._id + '"><img class="recipeImage" src="' + recipelist[i].image + '">'
+          + recipelist[i].recipeName + '</a></div>' ; } } %>
+          <%- recipe %>
+      </p>
+    </div>
+    <div class="col fullborder" id="4">
+      <h2 class="botborder center">Wednesday</h2>
+      <p>
+        <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==4) {
+          recipe='<div><a href="/' + recipelist[i]._id + '"><img class="recipeImage" src="' + recipelist[i].image + '">'
+          + recipelist[i].recipeName + '</a></div>' ; } } %>
+          <%- recipe %>
+      </p>
+    </div>
+    <div class="col fullborder" id="5">
+      <h2 class="botborder center">Thursday</h2>
+      <p>
+        <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==5) {
+          recipe='<div><a href="/' + recipelist[i]._id + '"><img class="recipeImage" src="' + recipelist[i].image + '">'
+          + recipelist[i].recipeName + '</a></div>' ; } } %>
+          <%- recipe %>
+      </p>
+    </div>
+    <div class="col fullborder" id="6">
+      <h2 class="botborder center">Friday</h2>
+      <p>
+        <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==6) {
+          recipe='<div><a href="/' + recipelist[i]._id + '"><img class="recipeImage" src="' + recipelist[i].image + '">'
+          + recipelist[i].recipeName + '</a></div>' ; } } %>
+          <%- recipe %>
+      </p>
+    </div>
+    <div class="col fullborder" id="7">
+      <h2 class="botborder center">Saturday</h2>
+      <p>
+        <% var recipe='&nbsp;' ; for (i=0; i < recipelist.length; i++) { if (recipelist[i].datePlanned==7) {
+          recipe='<div><a href="/' + recipelist[i]._id + '"><img class="recipeImage" src="' + recipelist[i].image + '">'
+          + recipelist[i].recipeName + '</a></div>' ; } } %>
+          <%- recipe %>
+      </p>
+    </div>
+  </div>
+  <button onclick="location.href = '/planMeals';">Edit your Meals</button>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

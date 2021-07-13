@@ -1,5 +1,5 @@
-var numbers = ["Select Fractional Quantity", "⅛", "⅜", "⅝", "⅞", "¼", "¾", "⅓", "⅔", "½"];
-var units = ["Select the Unit", "Tbsp", "tsp", "oz", "fl oz", "cup", "qt", "pt", "gal", "lb", "unit"];
+var numbers = ["Fractional Quantity", "⅛", "⅜", "⅝", "⅞", "¼", "¾", "⅓", "⅔", "½"];
+var units = ["unit", "Tbsp", "tsp", "oz", "fl oz", "cup", "qt", "pt", "gal", "lb"];
 
 function addFields(divName) {
     var newDiv = document.createElement('div');

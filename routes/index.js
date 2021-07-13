@@ -5,8 +5,18 @@ var ObjectId = require('monk').ObjectID;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Meal Plan App' });
+  var db = req.db;
+  var collection = db.get('recipeList');
+  collection.find({}, {}, function (e, docs) {
+    res.render('index', {
+      "recipelist": docs,
+      title: 'Meal Planning Calendar'
+    });
+  });
 });
+/*router.get('/', function (req, res, next) {
+  res.render('index', { title: 'Meal Plan App' });
+});*/
 
 /* GET addRecipe page */
 router.get('/addRecipe', function (req, res, next) {
@@ -31,13 +41,13 @@ router.post('/addRecipe', function (req, res) {
   var ingredients = [];
   //We'll now add the ingredients to an array;
   for (i = 0; i < recipeIngQuant.length; i++) {
-    if (recipeIngUnit[i] === "unit" || recipeIngUnit[i] === "Select the Unit") {
+    if (recipeIngUnit[i] === "unit") {
       recipeIngUnit[i] = "";
     }
     if (recipeIngWholeNumber[i] === "0") {
       recipeIngWholeNumber[i] = "";
     }
-    if (recipeIngQuant[i] === "Select Fractional Quantity") {
+    if (recipeIngQuant[i] === "Fractional Quantity") {
       recipeIngQuant[i] = "";
     }
     if (recipeIngQuant[i] = "") {
@@ -107,6 +117,21 @@ router.post('/pantry', function (req, res) {
   var unit = req.body.unit;
   var number = req.body.number;
 
+  if (unit === "unit") {
+    unit = "";
+  }
+  if (number === "0") {
+    number = "";
+  }
+  if (quantity === "Fractional Quantity") {
+    quantity = "";
+  }
+  /*if (quantity = "") {
+    quantity = number;
+  } else {
+    quantity = number + " " + quantity;
+  }*/
+
   // Set our collection
   var collection = db.get('pantry');
 
@@ -130,19 +155,19 @@ router.post('/pantry', function (req, res) {
   });
 });
 
-/* GET mealCalendar page */
-router.get('/mealCalendar', function (req, res, next) {
+/* GET mealCalendar page
+router.get('/', function (req, res, next) {
   var db = req.db;
   var collection = db.get('recipeList');
   collection.find({}, {}, function (e, docs) {
-    res.render('mealCalendar', {
+    res.render('index', {
       "recipelist": docs,
-      title: 'Meal Calendar'
+      title: 'Meal Planning Calendar'
     });
   });
 });
 
-/* GET ingredientList page */
+ GET ingredientList page */
 router.get('/ingredientList', function (req, res, next) {
   var db = req.db;
 
