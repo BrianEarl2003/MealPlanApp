@@ -21,7 +21,7 @@
 }
 
 .topnav {
-  background-color: #333;
+  background-color: rgb(100, 99, 99);
   overflow: hidden;
   border-radius: 25px;
 }
@@ -33,7 +33,7 @@
   /*text-align: center;*/
   padding: 10% 10%;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 130%;
 }
 
 .topnav a:hover {
