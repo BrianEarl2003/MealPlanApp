@@ -50,7 +50,7 @@ router.post('/addRecipe', function (req, res) {
     if (recipeIngQuant[i] === "Fractional Quantity") {
       recipeIngQuant[i] = "";
     }
-    if (recipeIngQuant[i] = "") {
+    if (recipeIngQuant[i] === "") {
       recipeIngQuant[i] = recipeIngWholeNumber[i];
     } else {
       recipeIngQuant[i] = recipeIngWholeNumber[i] + " " + recipeIngQuant[i];
