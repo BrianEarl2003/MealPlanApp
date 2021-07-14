@@ -98,7 +98,6 @@ router.get('/pantry', function (req, res, next) {
       console.log(pantry[i] + ': ' + location[i]);
     }
 
-    pantry.sort();
     res.render('pantry', {
       "recipes": pantry,
       "location": location,
